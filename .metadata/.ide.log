@@ -1,0 +1,6 @@
+2024-06-06 04:19:36,789 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 4:19:36.788 ERROR Chromium process exit code: -2,147,483,645
+2024-06-06 04:19:36,811 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-06 04:19:36,812 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 4:19:36.811 ERROR Crash dump dir: C:\Users\87407\AppData\Local\JxBrowser\7.37.2\CrashReports
+2024-06-06 04:19:36,812 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-06 04:19:36,813 [ERROR] WebApp:363 - JxBrowser engine crashed! Exit code: -2147483645
+2024-06-06 13:23:11,188 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 

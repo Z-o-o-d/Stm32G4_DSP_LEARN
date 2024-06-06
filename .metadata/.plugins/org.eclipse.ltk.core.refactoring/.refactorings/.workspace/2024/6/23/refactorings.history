@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ADC to DAC with DSP, Multiplication, Addition, and Time Delays&apos;" deleteContents="true" description="Delete resource &apos;ADC to DAC with DSP, Multiplication, Addition, and Time Delays&apos;" element1="/ADC to DAC with DSP, Multiplication, Addition, and Time Delays" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1717579377963"/>
+</session>

@@ -1,0 +1,1194 @@
+02:36:44 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+02:37:31 **** Incremental Build of configuration Debug for project ADC to DAC with DSP, Multiplication, Addition, and Time Delays ****
+make -j20 all 
+arm-none-eabi-gcc -o "ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC to DAC with DSP, Multiplication, Addition, and Time Delays\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC to DAC with DSP, Multiplication, Addition, and Time Delays.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Multiplication: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Addition: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  and Time Delays.map: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+02:37:43 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+02:39:15 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+02:39:32 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32484	  50124	   c3cc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:43:16 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32484	  50124	   c3cc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:44:31 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32484	  50124	   c3cc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:46:42 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32484	  50124	   c3cc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:48:36 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   2100	  19724	   4d0c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:48:48 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   2100	  19724	   4d0c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+02:50:04 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ADC with DMA and TimerTriggered Conversions.elf section `._user_heap_stack' will not fit in region `RAM'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: region `RAM' overflowed by 48 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC with DMA and TimerTriggered Conversions.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+02:50:10 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32644	  50284	   c46c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:51:31 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32644	  50284	   c46c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:53:00 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  32644	  50284	   c46c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:53:39 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   2484	  20108	   4e8c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:54:20 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   2884	  20508	   501c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:56:17 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   3684	  21308	   533c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:56:50 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   3684	  21308	   533c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:57:29 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   3684	  21308	   533c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+02:57:58 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   3684	  21308	   533c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:01:21 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     12	   3684	  21308	   533c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:01:54 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17624	     12	  10084	  27720	   6c48	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:04:04 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:04:45 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:07:41 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:131:27: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
+  131 | HAL_ADC_Start_DMA(&hadc2, ADC_BUFFER, BUFFER_SIZE);
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:228,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h:2242:78: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+ 2242 | HAL_StatusTypeDef       HAL_ADC_Start_DMA(ADC_HandleTypeDef *hadc, uint32_t *pData, uint32_t Length);
+      |                                                                    ~~~~~~~~~~^~~~~
+../Core/Src/main.c:133:42: warning: passing argument 3 of 'HAL_DAC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
+  133 | HAL_DAC_Start_DMA(&hdac3, DAC_CHANNEL_1, DAC_BUFFER, BUFFER_SIZE, DAC_ALIGN_12B_R);
+      |                                          ^~~~~~~~~~
+      |                                          |
+      |                                          uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:555:96: note: expected 'const uint32_t *' {aka 'const long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  555 | HAL_StatusTypeDef HAL_DAC_Start_DMA(DAC_HandleTypeDef *hdac, uint32_t Channel, const uint32_t *pData, uint32_t Length,
+      |                                                                                ~~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  14084	  31724	   7bec	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:08:30 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:10:03 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:10:44 **** Incremental Build of configuration Debug for project ADC to DAC with DSP, Multiplication, Addition, and Time Delays ****
+make -j20 all 
+arm-none-eabi-gcc -o "ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC to DAC with DSP, Multiplication, Addition, and Time Delays\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC to DAC with DSP, Multiplication, Addition, and Time Delays.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Multiplication: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Addition: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  and Time Delays.map: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+03:10:45 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+03:10:45 **** Incremental Build of configuration Debug for project BSP ****
+make -j20 all 
+arm-none-eabi-size  BSP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32268	    388	   6132	  38788	   9784	BSP.elf
+Finished building: default.size.stdout
+ 
+03:10:45 **** Incremental Build of configuration Debug for project DSP_1 ****
+make -j20 all 
+arm-none-eabi-size  DSP_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50348	    468	  15316	  66132	  10254	DSP_1.elf
+Finished building: default.size.stdout
+ 
+03:10:45 **** Incremental Build of configuration Debug for project DSP_TIM ****
+make -j20 all 
+arm-none-eabi-size  DSP_TIM.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21080	     12	   4780	  25872	   6510	DSP_TIM.elf
+Finished building: default.size.stdout
+ 
+03:10:50 **** Incremental Build of configuration Debug for project ADC to DAC with DSP, Multiplication, Addition, and Time Delays ****
+make -j20 all 
+arm-none-eabi-gcc -o "ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC to DAC with DSP, Multiplication, Addition, and Time Delays\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC to DAC with DSP, Multiplication, Addition, and Time Delays.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Multiplication: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Addition: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  and Time Delays.map: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+03:10:50 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+03:10:51 **** Incremental Build of configuration Debug for project BSP ****
+make -j20 all 
+arm-none-eabi-size  BSP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32268	    388	   6132	  38788	   9784	BSP.elf
+Finished building: default.size.stdout
+ 
+03:10:51 **** Incremental Build of configuration Debug for project DSP_1 ****
+make -j20 all 
+arm-none-eabi-size  DSP_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  50348	    468	  15316	  66132	  10254	DSP_1.elf
+Finished building: default.size.stdout
+ 
+03:10:51 **** Incremental Build of configuration Debug for project DSP_TIM ****
+make -j20 all 
+arm-none-eabi-size  DSP_TIM.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21080	     12	   4780	  25872	   6510	DSP_TIM.elf
+Finished building: default.size.stdout
+ 
+03:10:54 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+03:11:53 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+03:12:04 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+03:12:33 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17628	     12	  26084	  43724	   aacc	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+03:13:44 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:15:36 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:16:09 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:17:21 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:18:33 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:18:51 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:19:16 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:19:37 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:20:40 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  26084	  45024	   afe0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:21:58 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18924	     12	  10276	  29212	   721c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:23:04 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18924	     12	  18084	  37020	   909c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+03:24:46 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18912	     12	   2244	  21168	   52b0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+12:29:34 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18924	     12	  10084	  29020	   715c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:19:27 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.d" -MT"Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:454:1: error: expected identifier or '(' before '}' token
+  454 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+17:19:47 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18840	     12	   2092	  20944	   51d0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:19:57 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18840	     12	   2092	  20944	   51d0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+17:21:32 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  17640	     12	  10084	  27736	   6c58	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:22:07 **** Incremental Build of configuration Debug for project ADC to DAC with DSP, Multiplication, Addition, and Time Delays ****
+make -j20 all 
+arm-none-eabi-gcc -o "ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC to DAC with DSP, Multiplication, Addition, and Time Delays\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC to DAC with DSP, Multiplication, Addition, and Time Delays.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Multiplication: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  Addition: No such file or directory
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot find  and Time Delays.map: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC to DAC with DSP, Multiplication, Addition, and Time Delays.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+17:24:53 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.d" -MT"Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18924	     12	  18084	  37020	   909c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:26:24 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18924	     12	  18084	  37020	   909c	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:35:01 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18084	  37024	   90a0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:40:12 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18084	  37024	   90a0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:41:10 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18084	  37024	   90a0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:42:03 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18084	  37024	   90a0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:42:39 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18084	  37024	   90a0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:45:12 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  18084	  37028	   90a4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:56:32 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  26084	  45028	   afe4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:56:55 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:57:29 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18916	     12	   2884	  21812	   5534	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:58:12 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  10084	  29024	   7160	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:58:39 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18916	     12	   3684	  22612	   5854	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:59:01 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18084	  37024	   90a0	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+17:59:37 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  10276	  29216	   7220	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:00:13 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18468	  37408	   9220	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:01:56 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18936	     12	  18468	  37416	   9228	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:02:27 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18936	     12	  18468	  37416	   9228	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:11:30 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  18468	  37412	   9224	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:11:59 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18468	  37408	   9220	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:16:45 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:64:25: error: 'BUFFER_TEMP_DELAY' undeclared here (not in a function); did you mean 'BUFFER_DELAY'?
+   64 | uint32_t DELAY_BUFFER_0[BUFFER_TEMP_DELAY];
+      |                         ^~~~~~~~~~~~~~~~~
+      |                         BUFFER_DELAY
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+18:16:52 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:64:25: error: 'BUFFER_TEMP_DELAY' undeclared here (not in a function); did you mean 'BUFFER_DELAY'?
+   64 | uint32_t DELAY_BUFFER_0[BUFFER_TEMP_DELAY];
+      |                         ^~~~~~~~~~~~~~~~~
+      |                         BUFFER_DELAY
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+18:17:15 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18468	  37408	   9220	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:18:12 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  18468	  37408	   9220	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:18:32 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  26084	  45028	   afe4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:18:52 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:19:38 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+18:20:17 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+20:37:21 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+20:38:46 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+20:39:08 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+20:39:20 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+20:39:31 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  32484	  51428	   c8e4	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+01:34:39 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18936	     12	  32484	  51432	   c8e8	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+01:35:01 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18936	     12	  32484	  51432	   c8e8	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+13:14:41 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  10084	  29028	   7164	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+13:15:26 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18932	     12	  10084	  29028	   7164	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+13:21:02 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC with DMA and TimerTriggered Conversions.elf
+ 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  10084	  29024	   7160	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC with DMA and TimerTriggered Conversions.list
+ 
+13:21:10 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  10084	  29024	   7160	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 

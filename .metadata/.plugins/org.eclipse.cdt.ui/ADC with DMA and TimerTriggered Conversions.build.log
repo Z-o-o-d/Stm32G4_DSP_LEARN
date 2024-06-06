@@ -1,0 +1,10 @@
+13:21:10 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+make -j20 all 
+arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18928	     12	  10084	  29024	   7160	ADC with DMA and TimerTriggered Conversions.elf
+Finished building: default.size.stdout
+ 
+
+13:21:10 Build Finished. 0 errors, 0 warnings. (took 159ms)
+
