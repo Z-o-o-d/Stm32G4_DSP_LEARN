@@ -1,9 +1,9 @@
-14:47:29 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
+15:55:26 **** Incremental Build of configuration Debug for project ADC with DMA and TimerTriggered Conversions ****
 make -j20 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:181:35: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  181 |                           sprintf(CDC_BUFFER,"Data: %d \r\n",WHILE_BUFFER[i]);
+../Core/Src/main.c:184:35: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  184 |                           sprintf(CDC_BUFFER,"Data: %d , %d\r\n",WHILE_BUFFER[i],i);
       |                                   ^~~~~~~~~~
       |                                   |
       |                                   uint8_t * {aka unsigned char *}
@@ -14,11 +14,11 @@ In file included from ../USB_Device/Target/usbd_conf.h:30,
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:181:54: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  181 |                           sprintf(CDC_BUFFER,"Data: %d \r\n",WHILE_BUFFER[i]);
-      |                                                     ~^       ~~~~~~~~~~~~~~~
-      |                                                      |                   |
-      |                                                      int                 uint32_t {aka long unsigned int}
+../Core/Src/main.c:184:54: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  184 |                           sprintf(CDC_BUFFER,"Data: %d , %d\r\n",WHILE_BUFFER[i],i);
+      |                                                     ~^           ~~~~~~~~~~~~~~~
+      |                                                      |                       |
+      |                                                      int                     uint32_t {aka long unsigned int}
       |                                                     %ld
 arm-none-eabi-gcc -o "ADC with DMA and TimerTriggered Conversions.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\PCB\Stm32G431\ADC with DMA and TimerTriggered Conversions\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC with DMA and TimerTriggered Conversions.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: ADC with DMA and TimerTriggered Conversions.elf
@@ -26,11 +26,11 @@ Finished building target: ADC with DMA and TimerTriggered Conversions.elf
 arm-none-eabi-size  ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf 
 arm-none-eabi-objdump -h -S ADC\ with\ DMA\ and\ TimerTriggered\ Conversions.elf  > "ADC with DMA and TimerTriggered Conversions.list"
    text	   data	    bss	    dec	    hex	filename
-  48368	    468	  20468	  69304	  10eb8	ADC with DMA and TimerTriggered Conversions.elf
+  48356	    468	  20196	  69020	  10d9c	ADC with DMA and TimerTriggered Conversions.elf
 Finished building: default.size.stdout
  
 Finished building: ADC with DMA and TimerTriggered Conversions.list
  
 
-14:47:30 Build Finished. 0 errors, 2 warnings. (took 647ms)
+15:55:26 Build Finished. 0 errors, 2 warnings. (took 641ms)
 
