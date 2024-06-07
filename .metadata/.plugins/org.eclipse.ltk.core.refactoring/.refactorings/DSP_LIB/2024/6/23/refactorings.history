@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DSP_LIB/ADC with DMA and TimerTriggered Conversions.ioc&apos; to &apos;DSP_LIB.ioc&apos;" description="Rename resource &apos;ADC with DMA and TimerTriggered Conversions.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ADC with DMA and TimerTriggered Conversions.ioc" name="DSP_LIB.ioc" stamp="1717728172985" updateReferences="true"/>
+</session>

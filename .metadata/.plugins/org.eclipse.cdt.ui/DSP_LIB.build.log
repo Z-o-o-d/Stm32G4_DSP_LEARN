@@ -1,0 +1,36 @@
+15:33:01 **** Incremental Build of configuration Debug for project DSP_LIB ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include" -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:192:35: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  192 |                           sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
+      |                                   ^~~~~~~~~~
+      |                                   |
+      |                                   uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:192:50: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  192 |                           sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
+      |                                                 ~^         ~~~~~~~~~~~~~~~
+      |                                                  |                     |
+      |                                                  int                   uint32_t {aka long unsigned int}
+      |                                                 %ld
+arm-none-eabi-gcc -o "DSP_LIB.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DSP_LIB.map" -Wl,--gc-sections -static -L"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\Drivers\CMSIS\DSP_DRIVERS\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DSP_LIB.elf
+ 
+arm-none-eabi-size  DSP_LIB.elf 
+arm-none-eabi-objdump -h -S DSP_LIB.elf  > "DSP_LIB.list"
+   text	   data	    bss	    dec	    hex	filename
+  48488	    468	  31764	  80720	  13b50	DSP_LIB.elf
+Finished building: default.size.stdout
+ 
+Finished building: DSP_LIB.list
+ 
+
+15:33:02 Build Finished. 0 errors, 2 warnings. (took 635ms)
+
