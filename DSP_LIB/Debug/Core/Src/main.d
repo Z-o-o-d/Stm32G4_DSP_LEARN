@@ -48,7 +48,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
  C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h \
- ../Drivers/CMSIS/Include/cmsis_compiler.h
+ ../Drivers/CMSIS/Include/cmsis_compiler.h \
+ C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_const_structs.h \
+ C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h \
+ C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_common_tables.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -101,3 +104,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
 C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h:
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
+C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_const_structs.h:
+C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h:
+C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_common_tables.h:

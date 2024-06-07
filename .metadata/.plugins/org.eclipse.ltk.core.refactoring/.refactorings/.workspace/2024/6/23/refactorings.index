@@ -1,3 +1,5 @@
 1717579377963	Delete resource 'ADC to DAC with DSP, Multiplication, Addition, and Time Delays'
 1717660788270	Delete resource 'ADC with DMA and TimerTriggered Conversions2'
 1717661543162	Delete resource 'ADC with DMA and TimerTriggered Conversions'
+1717755382809	Delete resource 'STM32G474_FMAC'
+1717755444132	Rename resource 'FMAC_473'

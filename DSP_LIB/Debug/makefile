@@ -65,7 +65,7 @@ main-build: DSP_LIB.elf secondary-outputs
 
 # Tool invocations
 DSP_LIB.elf DSP_LIB.map: $(OBJS) $(USER_OBJS) C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\STM32G431RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "DSP_LIB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DSP_LIB.map" -Wl,--gc-sections -static -L"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\Drivers\CMSIS\DSP_DRIVERS\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "DSP_LIB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DSP_LIB.map" -Wl,--gc-sections -static -L"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\Drivers\CMSIS\DSP_DRIVERS\Lib\GCC" -L../Middlewares/ST/ARM/DSP/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
