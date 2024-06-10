@@ -1,0 +1,10 @@
+13:07:11 **** Incremental Build of configuration Debug for project STM32G474RET6 ****
+make -j20 all 
+arm-none-eabi-size  STM32G474RET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35204	    388	   8436	  44028	   abfc	STM32G474RET6.elf
+Finished building: default.size.stdout
+ 
+
+13:07:11 Build Finished. 0 errors, 0 warnings. (took 462ms)
+

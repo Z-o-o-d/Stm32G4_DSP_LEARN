@@ -27,6 +27,8 @@ extern DMA_HandleTypeDef hdma_adc2;
 
 extern DMA_HandleTypeDef hdma_dac3_ch1;
 
+extern DMA_HandleTypeDef hdma_fmac_read;
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -141,9 +143,6 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
 
     __HAL_LINKDMA(hadc,DMA_Handle,hdma_adc2);
 
-    /* ADC2 interrupt Init */
-    HAL_NVIC_SetPriority(ADC1_2_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
   /* USER CODE BEGIN ADC2_MspInit 1 */
 
   /* USER CODE END ADC2_MspInit 1 */
@@ -169,9 +168,6 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
 
     /* ADC2 DMA DeInit */
     HAL_DMA_DeInit(hadc->DMA_Handle);
-
-    /* ADC2 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(ADC1_2_IRQn);
   /* USER CODE BEGIN ADC2_MspDeInit 1 */
 
   /* USER CODE END ADC2_MspDeInit 1 */
@@ -249,7 +245,7 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
     hdma_dac3_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
     hdma_dac3_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
     hdma_dac3_ch1.Init.Mode = DMA_CIRCULAR;
-    hdma_dac3_ch1.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    hdma_dac3_ch1.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_dac3_ch1) != HAL_OK)
     {
       Error_Handler();
@@ -304,6 +300,25 @@ void HAL_FMAC_MspInit(FMAC_HandleTypeDef* hfmac)
   /* USER CODE END FMAC_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_FMAC_CLK_ENABLE();
+
+    /* FMAC DMA Init */
+    /* FMAC_READ Init */
+    hdma_fmac_read.Instance = DMA1_Channel4;
+    hdma_fmac_read.Init.Request = DMA_REQUEST_FMAC_READ;
+    hdma_fmac_read.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_fmac_read.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_fmac_read.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_fmac_read.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_fmac_read.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_fmac_read.Init.Mode = DMA_CIRCULAR;
+    hdma_fmac_read.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_fmac_read) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(hfmac,hdmaOut,hdma_fmac_read);
+
   /* USER CODE BEGIN FMAC_MspInit 1 */
 
   /* USER CODE END FMAC_MspInit 1 */
@@ -326,6 +341,9 @@ void HAL_FMAC_MspDeInit(FMAC_HandleTypeDef* hfmac)
   /* USER CODE END FMAC_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_FMAC_CLK_DISABLE();
+
+    /* FMAC DMA DeInit */
+    HAL_DMA_DeInit(hfmac->hdmaOut);
   /* USER CODE BEGIN FMAC_MspDeInit 1 */
 
   /* USER CODE END FMAC_MspDeInit 1 */

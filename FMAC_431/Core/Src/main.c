@@ -36,9 +36,13 @@
 /* USER CODE BEGIN PTD */
 
 
-#define LOOP 1
+//#define LOOP 1
 //#define DELAY 1
-#define TOWHILE 1
+//#define TOWHILE 1
+
+#define FILTER_OUT_BUFFER_SIZE 1
+#define FILTER_IN_BUFFER_SIZE 1
+#define FILTER_TAP 127
 
 
 #define BUFFER_SIZE 2048
@@ -72,6 +76,7 @@ DAC_HandleTypeDef hdac3;
 DMA_HandleTypeDef hdma_dac3_ch1;
 
 FMAC_HandleTypeDef hfmac;
+DMA_HandleTypeDef hdma_fmac_read;
 
 OPAMP_HandleTypeDef hopamp1;
 OPAMP_HandleTypeDef hopamp3;
@@ -98,6 +103,17 @@ uint32_t ADC_VALUE;
 uint32_t WHILE_FLAG=0;
 
 
+uint16_t ADC_data[FILTER_IN_BUFFER_SIZE];  // Данные с АЦП
+uint16_t FMAC_out[FILTER_OUT_BUFFER_SIZE]; // Данные на выходе фильтра
+
+
+static int16_t FilterCoeffB[127] =
+{-10,-10,-10,-9,-9,-9,-8,-8,-7,-6,-5,-4,-2,0,3,6,10,14,19,25,32,40,48,57,68,79,
+91,104,118,134,150,166,184,203,222,242,263,284,306,328,350,373,396,418,441,463,
+485,506,527,547,566,585,602,618,633,646,659,669,679,686,692,696,699,700,699,696,
+692,686,679,669,659,646,633,618,602,585,566,547,527,506,485,463,441,418,396,373,
+350,328,306,284,263,242,222,203,184,166,150,134,118,104,91,79,68,57,48,40,32,25,
+19,14,10,6,3,0,-2,-4,-5,-6,-7,-8,-8,-9,-9,-9,-10,-10,-10};
 
 
 /* USER CODE END PV */
@@ -175,14 +191,20 @@ int main(void)
 HAL_OPAMP_Start(&hopamp1);
 HAL_OPAMP_Start(&hopamp3);
 
-HAL_ADC_Start_DMA(&hadc2, ADC_BUFFER, BUFFER_SIZE);
+//HAL_ADC_Start_DMA(&hadc2, ADC_BUFFER, BUFFER_SIZE);
+////HAL_DAC_Start_DMA(&hdac3, DAC_CHANNEL_1, DAC_BUFFER, BUFFER_SIZE, DAC_ALIGN_12B_R);
 //HAL_DAC_Start_DMA(&hdac3, DAC_CHANNEL_1, DAC_BUFFER, BUFFER_SIZE, DAC_ALIGN_12B_R);
-HAL_DAC_Start_DMA(&hdac3, DAC_CHANNEL_1, DAC_BUFFER, BUFFER_SIZE, DAC_ALIGN_12B_R);
-HAL_TIM_Base_Start(&htim6);
+//HAL_TIM_Base_Start(&htim6);
+//
+//
+//HAL_Delay(100);
+uint16_t Filter_output_Size = FILTER_OUT_BUFFER_SIZE;
 
-
-HAL_Delay(100);
-
+HAL_FMAC_FilterStart(&hfmac, (int16_t*)&FMAC_out, &Filter_output_Size);										// Запускаем фильтр
+//HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);														// Калибруем АЦП
+HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&FMAC->WDATA, FILTER_IN_BUFFER_SIZE);									// Запускаем АЦП с сохранением по DMA по указателю на FMAC->WDATA
+HAL_DAC_Start_DMA(&hdac3, DAC_CHANNEL_1, (uint32_t*)&FMAC_out, FILTER_OUT_BUFFER_SIZE, DAC_ALIGN_12B_R); 	// Выводим входные данные FIR фильтра на ЦАП
+HAL_TIM_Base_Start(&htim6);																					// Запускаем таймер
 
 
   /* USER CODE END 2 */
@@ -197,22 +219,22 @@ HAL_Delay(100);
     /* USER CODE BEGIN 3 */
 
 
-		if (WHILE_FLAG==2) {
-
-
-
-
-
-//			arm_cfft_sR_f32_len1024();
-			for (int i = 0; i < BUFFER_SIZE; ++i) {
-			HAL_Delay(1);
-			  sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
-			  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
-			}
-
-			HAL_Delay(10);
-			  WHILE_FLAG=0;
-		}
+//		if (WHILE_FLAG==2) {
+//
+//
+//
+//
+//
+////			arm_cfft_sR_f32_len1024();
+//			for (int i = 0; i < BUFFER_SIZE; ++i) {
+//			HAL_Delay(1);
+//			  sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
+//			  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
+//			}
+//
+//			HAL_Delay(10);
+//			  WHILE_FLAG=0;
+//		}
 
 
 //	  	  sprintf(CDC_BUFFER,"Data: 1234 \r\n");
@@ -512,7 +534,7 @@ static void MX_TIM6_Init(void)
   htim6.Instance = TIM6;
   htim6.Init.Prescaler = 17-1;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 4;
+  htim6.Init.Period = 99;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
@@ -547,6 +569,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+  /* DMA1_Channel4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
 
 }
 

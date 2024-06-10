@@ -2,8 +2,9 @@
 ADC2.Channel-0\#ChannelRegularConversion=ADC_CHANNEL_VOPAMP3_ADC2
 ADC2.CommonPathInternal=null|null|null|null
 ADC2.DMAContinuousRequests=ENABLE
+ADC2.DataAlign=ADC_DATAALIGN_RIGHT
 ADC2.ExternalTrigConv=ADC_EXTERNALTRIG_T6_TRGO
-ADC2.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,OffsetNumber-0\#ChannelRegularConversion,NbrOfConversionFlag,DMAContinuousRequests,ExternalTrigConv,NbrOfConversion,Overrun,OversamplingMode,CommonPathInternal
+ADC2.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,OffsetNumber-0\#ChannelRegularConversion,NbrOfConversionFlag,DMAContinuousRequests,ExternalTrigConv,NbrOfConversion,Overrun,OversamplingMode,DataAlign,CommonPathInternal
 ADC2.NbrOfConversion=1
 ADC2.NbrOfConversionFlag=1
 ADC2.OffsetNumber-0\#ChannelRegularConversion=ADC_OFFSET_NONE

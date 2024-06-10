@@ -1,0 +1,9 @@
+../Core/Src/ws2812.c:15:6:ws2812_update	6
+../Core/Src/ws2812.c:42:6:ws2812_gradient	4
+../Core/Src/ws2812.c:84:6:ws2812_set_rgb	1
+../Core/Src/ws2812.c:94:6:ws2812_set	1
+../Core/Src/ws2812.c:103:6:ws2812_set_all	2
+../Core/Src/ws2812.c:118:10:rgb_to_color	1
+../Core/Src/ws2812.c:130:6:color_to_rgb	1
+../Core/Src/ws2812.c:139:10:rainbow_color	1
+../Core/Src/ws2812.c:147:6:rainbow_effect	3

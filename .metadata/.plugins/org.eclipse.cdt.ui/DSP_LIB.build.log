@@ -1,9 +1,50 @@
-18:04:21 **** Incremental Build of configuration Debug for project DSP_LIB ****
+20:47:37 **** Incremental Build of configuration Debug for project DSP_LIB ****
 make -j20 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include" -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -D__FPU_PRESENT=1 -D__FPU_USED=1 -D__TARGET_FPU_VFP -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include" -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -Os -ffunction-sections -fdata-sections -Wall -u _printf_float -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h:107,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h:29,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32g4xx_hal_conf.h:212,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h:51: warning: "__FPU_PRESENT" redefined
+   51 | #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+      | 
+<command-line>: note: this is the location of the previous definition
+In file included from ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h:154:
+../Drivers/CMSIS/Include/core_cm4.h:103: warning: "__FPU_USED" redefined
+  103 |       #define __FPU_USED       1U
+      | 
+<command-line>: note: this is the location of the previous definition
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:209:35: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  209 |                           sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
+../Core/Src/main.c:283:54: warning: passing argument 1 of 'fft_blackman_harris_92db_f32' from incompatible pointer type [-Wincompatible-pointer-types]
+  283 |                         fft_blackman_harris_92db_f32(WHILE_BUFFER, BUFFER_SIZE);
+      |                                                      ^~~~~~~~~~~~
+      |                                                      |
+      |                                                      uint32_t * {aka long unsigned int *}
+../Core/Src/main.c:178:21: note: expected 'float32_t *' {aka 'float *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+  178 |         float32_t * pDst,
+      |         ~~~~~~~~~~~~^~~~
+../Core/Src/main.c:288:50: warning: passing argument 2 of 'arm_rfft_fast_f32' from incompatible pointer type [-Wincompatible-pointer-types]
+  288 |                         arm_rfft_fast_f32(&hFFT, WHILE_BUFFER, FFT_BUFFER, 0);
+      |                                                  ^~~~~~~~~~~~
+      |                                                  |
+      |                                                  uint32_t * {aka long unsigned int *}
+In file included from ../Core/Src/main.c:27:
+C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h:2390:21: note: expected 'float32_t *' {aka 'float *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+ 2390 |         float32_t * p, float32_t * pOut,
+      |         ~~~~~~~~~~~~^
+../Core/Src/main.c:288:64: warning: passing argument 3 of 'arm_rfft_fast_f32' from incompatible pointer type [-Wincompatible-pointer-types]
+  288 |                         arm_rfft_fast_f32(&hFFT, WHILE_BUFFER, FFT_BUFFER, 0);
+      |                                                                ^~~~~~~~~~
+      |                                                                |
+      |                                                                uint32_t * {aka long unsigned int *}
+C:/Users/87407/OneDrive/Stm32G431/DSP_LIB/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h:2390:36: note: expected 'float32_t *' {aka 'float *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+ 2390 |         float32_t * p, float32_t * pOut,
+      |                        ~~~~~~~~~~~~^~~~
+../Core/Src/main.c:298:35: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  298 |                           sprintf(CDC_BUFFER,"V:%d,%d\r\n",FFT_BUFFER[i],i+BUFFER_SIZE);
       |                                   ^~~~~~~~~~
       |                                   |
       |                                   uint8_t * {aka unsigned char *}
@@ -14,11 +55,11 @@ In file included from ../USB_Device/Target/usbd_conf.h:30,
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:209:50: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  209 |                           sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
-      |                                                 ~^         ~~~~~~~~~~~~~~~
-      |                                                  |                     |
-      |                                                  int                   uint32_t {aka long unsigned int}
+../Core/Src/main.c:298:50: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  298 |                           sprintf(CDC_BUFFER,"V:%d,%d\r\n",FFT_BUFFER[i],i+BUFFER_SIZE);
+      |                                                 ~^         ~~~~~~~~~~~~~
+      |                                                  |                   |
+      |                                                  int                 uint32_t {aka long unsigned int}
       |                                                 %ld
 arm-none-eabi-gcc -o "DSP_LIB.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\STM32G431RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DSP_LIB.map" -Wl,--gc-sections -static -L"C:\Users\87407\OneDrive\Stm32G431\DSP_LIB\Drivers\CMSIS\DSP_DRIVERS\Lib\GCC" -L../Middlewares/ST/ARM/DSP/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: DSP_LIB.elf
@@ -26,11 +67,11 @@ Finished building target: DSP_LIB.elf
 arm-none-eabi-size  DSP_LIB.elf 
 arm-none-eabi-objdump -h -S DSP_LIB.elf  > "DSP_LIB.list"
    text	   data	    bss	    dec	    hex	filename
-  48452	    468	  19396	  68316	  10adc	DSP_LIB.elf
+ 109388	    468	  23492	 133348	  208e4	DSP_LIB.elf
 Finished building: default.size.stdout
  
 Finished building: DSP_LIB.list
  
 
-18:04:22 Build Finished. 0 errors, 2 warnings. (took 699ms)
+20:47:38 Build Finished. 0 errors, 7 warnings. (took 743ms)
 

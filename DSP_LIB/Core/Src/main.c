@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define ARM_MATH_CM4l
 #include "usbd_cdc_if.h"
 #include "arm_math.h"
 #include "arm_const_structs.h"
@@ -34,10 +34,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+#define REF_V 2048
 
 
-//#define LOOP 1
-#define DELAY 1
+#define LOOP 1
+//#define DELAY 1
 #define TOWHILE 1
 
 
@@ -86,6 +87,8 @@ extern USBD_HandleTypeDef hUsbDeviceFS;
 uint32_t ADC_BUFFER[BUFFER_SIZE];
 uint32_t DAC_BUFFER[BUFFER_SIZE];
 uint32_t WHILE_BUFFER[BUFFER_SIZE];
+uint32_t FFT_BUFFER[BUFFER_SIZE];
+
 
 uint8_t CDC_BUFFER[CDC_BUFFER_SIZE];
 
@@ -121,12 +124,82 @@ static void MX_FMAC_Init(void);
 /* USER CODE BEGIN 0 */
 
 
+void fft_hanning_f32(
+        float32_t * pDst,
+        uint32_t blockSize)
+{
+   float32_t k = 2.0f / ((float32_t) blockSize);
+   float32_t w;
+
+   for(uint32_t i=0;i<blockSize;i++)
+   {
+     w = PI * i * k;
+     w = 0.5f * (1.0f - cosf (w));
+     pDst[i] = w*pDst[i];
+   }
+}
 
 
+void fft_hamming_f32(
+        float32_t * pDst,
+        uint32_t blockSize)
+{
+   float32_t k = 2.0f / ((float32_t) blockSize);
+   float32_t w;
+
+   for(uint32_t i=0;i<blockSize;i++)
+   {
+     w = 0.54f - 0.46f * cosf (PI * i * k);
+     pDst[i] = w*pDst[i];
+   }
+}
 
 
+void fft_bartlett_f32(
+        float32_t * pDst,
+        uint32_t blockSize)
+{
+   float32_t k = 2.0f / ((float32_t) blockSize);
+   float32_t w;
+
+   for(uint32_t i=0;i<blockSize;i++)
+   {
+     w = i * k ;
+     if (i * k > 1.0f)
+     {
+       w = 2.0f - w;
+     }
+     pDst[i] = w*pDst[i];
+   }
+}
 
 
+void fft_blackman_harris_92db_f32(
+        float32_t * pDst,
+        uint32_t blockSize)
+{
+   float32_t k = 2.0f / ((float32_t) blockSize);
+   float32_t w;
+
+   for(uint32_t i=0;i<blockSize;i++)
+   {
+     w = PI * i * k;
+        w = 0.35875f - 0.48829f * cosf (w) +
+    0.14128f * cosf (2.f * w) - 0.01168f * cosf (3.f * w);
+
+        pDst[i] = w*pDst[i];
+   }
+}
+
+void USB_send_message(const char *message) {
+    // 将字符串写入缓冲�?
+	uint32_t	TEMP_CDC_BUFFER[CDC_BUFFER_SIZE];
+    sprintf((char *)TEMP_CDC_BUFFER, "%s\r\n", message);
+    // 计算消息的实际长�?
+    uint32_t message_length = strlen((char *)TEMP_CDC_BUFFER);
+    // 发�?�缓冲区内容
+    CDC_Transmit_FS((uint8_t *)TEMP_CDC_BUFFER, message_length);
+}
 
 
 
@@ -180,8 +253,10 @@ HAL_ADC_Start_DMA(&hadc2, ADC_BUFFER, BUFFER_SIZE);
 HAL_DAC_Start_DMA(&hdac3, DAC_CHANNEL_1, DAC_BUFFER, BUFFER_SIZE, DAC_ALIGN_12B_R);
 HAL_TIM_Base_Start(&htim6);
 
+arm_rfft_fast_instance_f32 hFFT;
+arm_rfft_fast_init_f32(&hFFT,BUFFER_SIZE);
 
-HAL_Delay(100);
+HAL_Delay(10);
 
 
 
@@ -195,25 +270,38 @@ HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	  USB_send_message("1234567890\r\n");
+	  HAL_Delay(100);
 
 		if (WHILE_FLAG==2) {
 
 
+//			for (int i = 0; i < BUFFER_SIZE; ++i) {
+//				WHILE_BUFFER[i]=WHILE_BUFFER[i]*REF_V/4096;
+//			}
 
-
-
+			fft_blackman_harris_92db_f32(WHILE_BUFFER, BUFFER_SIZE);
 //			arm_cfft_sR_f32_len1024();
+
+
+
+			arm_rfft_fast_f32(&hFFT, WHILE_BUFFER, FFT_BUFFER, 0);
+
+//			for (int i = 0; i < BUFFER_SIZE; ++i) {
+//			HAL_Delay(2);
+//			  sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
+//			  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
+//			}
+			HAL_Delay(100);
 			for (int i = 0; i < BUFFER_SIZE; ++i) {
-			HAL_Delay(1);
-			  sprintf(CDC_BUFFER,"V:%d,%d\r\n",WHILE_BUFFER[i],i);
+			HAL_Delay(2);
+			  sprintf(CDC_BUFFER,"V:%d,%d\r\n",FFT_BUFFER[i],i+BUFFER_SIZE);
 			  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
 			}
-
 			HAL_Delay(10);
 			  WHILE_FLAG=0;
 		}
-
+//
 
 //	  	  sprintf(CDC_BUFFER,"Data: 1234 \r\n");
 //
