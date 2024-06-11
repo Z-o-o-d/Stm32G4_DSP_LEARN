@@ -59,6 +59,7 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DUTY_111 0.8
 
 /* USER CODE BEGIN Private defines */
 
