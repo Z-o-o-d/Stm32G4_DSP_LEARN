@@ -22,6 +22,7 @@ Core/Src/ws2812.o: ../Core/Src/ws2812.c ../Core/Inc/ws2812.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_hrtim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h \
@@ -56,6 +57,7 @@ Core/Src/ws2812.o: ../Core/Src/ws2812.c ../Core/Inc/ws2812.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_hrtim.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h:

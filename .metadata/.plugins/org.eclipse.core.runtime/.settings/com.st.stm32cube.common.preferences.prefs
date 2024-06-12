@@ -1,3 +1,4 @@
+DebugConf.defaultGdbServer=com.st.stm32cube.ide.mcu.debug.jlink
 DeviceConfigurationTool.AskToSwitchToCdtPerspective=false
 DeviceConfigurationTool.AskToSwitchToCubeMxPerspective=false
 DeviceConfigurationTool.SwitchToCdtPerspective=true

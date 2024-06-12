@@ -1,0 +1,30 @@
+19:00:55 **** Incremental Build of configuration Debug for project ETR ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:186:19: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  186 |           sprintf(CDC_BUFFER,"-----WHILE-----      \r\n");
+      |                   ^~~~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+arm-none-eabi-gcc -o "ETR.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\ETR\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ETR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ETR.elf
+ 
+arm-none-eabi-size  ETR.elf 
+arm-none-eabi-objdump -h -S ETR.elf  > "ETR.list"
+   text	   data	    bss	    dec	    hex	filename
+  55544	    468	  18804	  74816	  12440	ETR.elf
+Finished building: default.size.stdout
+ 
+Finished building: ETR.list
+ 
+
+19:00:56 Build Finished. 0 errors, 1 warnings. (took 1s.7ms)
+

@@ -1,0 +1,17 @@
+01:16:09 **** Incremental Build of configuration Debug for project AAA_H750XB ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H750xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "AAA_H750XB.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\87407\OneDrive\Stm32G431\AAA_H750XB\STM32H750XBHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AAA_H750XB.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: AAA_H750XB.elf
+ 
+arm-none-eabi-size  AAA_H750XB.elf 
+arm-none-eabi-objdump -h -S AAA_H750XB.elf  > "AAA_H750XB.list"
+   text	   data	    bss	    dec	    hex	filename
+  26204	     16	   1792	  28012	   6d6c	AAA_H750XB.elf
+Finished building: default.size.stdout
+ 
+Finished building: AAA_H750XB.list
+ 
+
+01:16:10 Build Finished. 0 errors, 0 warnings. (took 767ms)
+
