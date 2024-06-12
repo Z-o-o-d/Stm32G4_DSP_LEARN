@@ -3449,3 +3449,6 @@ java.io.FileNotFoundException: C:\Users\87407\OneDrive\Stm32G431\ETR\Debug\ETR.e
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-06-12 21:40:48.864
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.internal.ui.actions.DsfTerminateCommand$3$1@4008587d): Status OK: unknown code=0 OK' resulted in a rejected execution exception.

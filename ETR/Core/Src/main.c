@@ -33,6 +33,24 @@
 /* USER CODE BEGIN PTD */
 
 
+#define REF_V 2048
+
+
+//#define LOOP 1
+//#define DELAY 1
+#define TOWHILE 1
+
+
+#define BUFFER_SIZE 1024
+#define BUFFER_SIZE_HALF BUFFER_SIZE/2
+#define BUFFER_DELAY 0
+
+#define CDC_BUFFER_SIZE 50
+
+//DelayS
+#define SIGNAL_DELAY BUFFER_DELAY * HAL_RCC_GetHCLKFreq() *(htim6.Init.Prescaler*htim6.Init.Period)
+
+
 
 /* USER CODE END PTD */
 
@@ -73,7 +91,22 @@ extern USBD_HandleTypeDef hUsbDeviceFS;
 uint32_t USER_Freq = 0x00;
 uint32_t USER_CounterTicks = 0x00;
 
-uint8_t CDC_BUFFER[50] = {0};
+
+uint32_t ADC_BUFFER[BUFFER_SIZE];
+uint32_t DAC_BUFFER[BUFFER_SIZE];
+uint32_t WHILE_BUFFER[BUFFER_SIZE];
+uint32_t FFT_BUFFER[BUFFER_SIZE];
+
+
+uint8_t CDC_BUFFER[CDC_BUFFER_SIZE];
+
+
+uint32_t DELAY_BUFFER_0[BUFFER_DELAY];
+uint32_t DELAY_BUFFER_1[BUFFER_DELAY];
+
+
+uint32_t ADC_VALUE;
+uint32_t WHILE_FLAG=0;
 
 
 
@@ -149,6 +182,7 @@ int main(void)
   HAL_OPAMP_Start(&hopamp1);
   HAL_OPAMP_Start(&hopamp3);
 
+  HAL_ADC_Start_DMA(&hadc2, ADC_BUFFER, BUFFER_SIZE);
 
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_Base_Start(&htim2);
@@ -173,18 +207,32 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		if (WHILE_FLAG==2) {
 
 		 ws2812_set_all(rgb_to_color(0xff, 0x00, 0x00));
 		 ws2812_gradient(100, 10);
-		 HAL_Delay(1000);
 		 ws2812_set_all(rgb_to_color(0x00, 0x00, 0xff));
 		 ws2812_gradient(100, 10);
-		 HAL_Delay(1000);
 		 ws2812_set_all(rgb_to_color(0x00, 0xff, 0x00));
 		 ws2812_gradient(100, 10);
-		 HAL_Delay(1000);
-	  sprintf(CDC_BUFFER,"-----WHILE-----      \r\n");
-	  CDC_Transmit_FS(CDC_BUFFER, 50);
+//	  sprintf(CDC_BUFFER,"-----WHILE-----      \r\n");
+//	  CDC_Transmit_FS(CDC_BUFFER, 50);
+
+
+		for (int i = 0; i < BUFFER_SIZE; ++i) {
+		HAL_Delay(2);
+
+
+
+		  sprintf(CDC_BUFFER,"Val:%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks);
+		  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
+
+
+
+		}
+		HAL_Delay(10);
+		  WHILE_FLAG=0;
+		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -270,7 +318,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC1;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_TRGO;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
   hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
@@ -337,7 +385,7 @@ static void MX_ADC2_Init(void)
   hadc2.Init.ContinuousConvMode = DISABLE;
   hadc2.Init.NbrOfConversion = 1;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
-  hadc2.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC2;
+  hadc2.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC1;
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
   hadc2.Init.DMAContinuousRequests = ENABLE;
   hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
@@ -518,9 +566,9 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 17-1;
+  htim1.Init.Prescaler = 8-1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 3;
+  htim1.Init.Period = 2;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -537,7 +585,7 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
@@ -823,6 +871,97 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+
+
+//delay
+ void HAL_ADC_ConvHalfCpltCallback	(ADC_HandleTypeDef *hadc)
+{
+
+
+#if LOOP
+	for (size_t i = 0; i < BUFFER_SIZE_HALF; i++) 			{		DAC_BUFFER[i] = ADC_BUFFER[i];	}
+#endif
+
+#if DELAY
+	for (size_t i = 0; i < BUFFER_DELAY; i++)
+	{
+		DAC_BUFFER[i] = DELAY_BUFFER_1[i];
+	}
+
+	for (size_t i = BUFFER_DELAY; i < BUFFER_SIZE_HALF; i++)
+	{
+		DAC_BUFFER[i] = ADC_BUFFER[i-BUFFER_DELAY];
+	}
+
+	for (size_t i = BUFFER_SIZE_HALF; i < BUFFER_SIZE_HALF+BUFFER_DELAY; i++)
+	{
+		DELAY_BUFFER_0[i-BUFFER_SIZE_HALF] = ADC_BUFFER[i-BUFFER_DELAY];
+	}
+#endif
+
+
+#if TOWHILE
+
+	//抓数据进while
+	if (WHILE_FLAG==0) {
+		for (size_t i = 0; i < BUFFER_SIZE_HALF; i++)
+		{		WHILE_BUFFER[i] = ADC_BUFFER[i];	}
+		WHILE_FLAG=1;
+	}
+
+
+
+#endif
+
+
+}
+ void HAL_ADC_ConvCpltCallback		(ADC_HandleTypeDef *hadc)
+{
+
+#if LOOP
+	 	for (size_t i = BUFFER_SIZE_HALF; i < BUFFER_SIZE; i++) {		DAC_BUFFER[i] = ADC_BUFFER[i];	}
+#endif
+
+
+#if DELAY
+
+	for (size_t i = 0; i < BUFFER_DELAY; i++)
+	{
+		DAC_BUFFER[i+BUFFER_SIZE_HALF] = DELAY_BUFFER_0[i];
+	}
+
+	for (size_t i = BUFFER_DELAY; i < BUFFER_SIZE_HALF; i++)
+	{
+		DAC_BUFFER[i+BUFFER_SIZE_HALF] = ADC_BUFFER[i+BUFFER_SIZE_HALF-BUFFER_DELAY];
+	}
+
+	for (size_t i = BUFFER_SIZE_HALF; i < BUFFER_SIZE_HALF+BUFFER_DELAY; i++)
+	{
+		DELAY_BUFFER_1[i-BUFFER_SIZE_HALF] = ADC_BUFFER[i+BUFFER_SIZE_HALF-BUFFER_DELAY];
+	}
+
+#endif
+
+#if TOWHILE
+
+//	抓数据进while
+	if (WHILE_FLAG==1) {
+		for (size_t i = BUFFER_SIZE_HALF; i < BUFFER_SIZE; i++)
+		{		WHILE_BUFFER[i] = ADC_BUFFER[i];	}
+		WHILE_FLAG=2;
+	}
+
+#endif
+}
+
+
+
+
+
+
+
 
 /* USER CODE END 4 */
 
