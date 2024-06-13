@@ -15,7 +15,7 @@ static uint32_t _ws2812_color_current[WS2812_NUM];
 /**
  * @brief  直接更新LED颜色
  */
-void ws2812_update(void)
+void ws2812_update_force(void)
 {
 	// 数据缓冲，每个LED占用24个字节，共10个LED，前100个字节用于复位信号
 	static uint16_t ws2812_data[RST_PERIOD_NUM + WS2812_NUM * 24];
@@ -72,7 +72,7 @@ void ws2812_gradient(uint8_t steps, uint16_t delay_ms)
 			ws2812_set_rgba(led_id, r, g, b , 255);
 		}
 
-		ws2812_update();
+		ws2812_update_force();
 		HAL_Delay(delay_ms);
 	}
 }
@@ -197,7 +197,7 @@ void rainbow_effect(uint8_t steps, uint16_t delay_ms)
 			uint32_t color = rainbow_color(frequency, i + led_id * 2, center, width);
 			ws2812_set_24bit(led_id, color);
 		}
-		ws2812_update();
+		ws2812_update_force();
 		HAL_Delay(delay_ms);
 	}
 }

@@ -1,4 +1,4 @@
-../Core/Src/ws2812.c:18:6:ws2812_update	6
+../Core/Src/ws2812.c:18:6:ws2812_update_force	6
 ../Core/Src/ws2812.c:45:6:ws2812_gradient	4
 ../Core/Src/ws2812.c:90:6:ws2812_set_24bit	1
 ../Core/Src/ws2812.c:99:6:ws2812_set_all	2

@@ -26,22 +26,22 @@
 #define RST_PERIOD_NUM 100
 
 
-extern uint8_t WS2812_BRIGHTNESS;
 extern uint32_t ws2812_color[WS2812_NUM];
 extern TIM_HandleTypeDef WS2812TIM;
+extern uint8_t ws2812_GEAR;
+extern uint8_t ws2812_TOTALGEAR;
 
 
-void ws2812_update(void);
+void ws2812_update_force(void);
 void ws2812_update_gradient(uint8_t steps, uint16_t delay_ms);
-
-
 
 void ws2812_set_24bit(uint8_t led_id, uint32_t color);
 void ws2812_set_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
-void ws2812_set_rgb_force(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
 void ws2812_set_rgba(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
-void ws2812_set_all(uint32_t color);
-void _ws2812_color_to_rgb(uint32_t color, uint8_t *r, uint8_t *g, uint8_t *b);
+void ws2812_set_all_24bit(uint32_t color);
+void ws2812_set_all_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
+void ws2812_set_all_rgba(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+
 
 
 uint32_t rgba_to_24bit(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
