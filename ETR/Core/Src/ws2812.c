@@ -13,7 +13,7 @@ uint32_t ws2812_color[WS2812_NUM] = {0};
 static uint32_t _ws2812_color_current[WS2812_NUM];
 
 /**
- * @brief  直接更新LED颜色
+ * @brief 更新数据启动dma
  */
 void ws2812_update_force(void)
 {

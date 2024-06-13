@@ -44,14 +44,11 @@
 #define TOWHILE 1
 
 
-#define BUFFER_SIZE 300
+#define BUFFER_SIZE 600
 #define BUFFER_SIZE_HALF BUFFER_SIZE/2
 #define BUFFER_DELAY 0
 
 #define CDC_BUFFER_SIZE 100
-
-//DelayS
-#define SIGNAL_DELAY BUFFER_DELAY * HAL_RCC_GetHCLKFreq() *(htim6.Init.Prescaler*htim6.Init.Period)
 
 
 
@@ -105,9 +102,14 @@ uint32_t USER_CounterTicks = 0x00;
 
 
 uint32_t ADC_BUFFER[BUFFER_SIZE];
+uint32_t ADC1_BUFFER[BUFFER_SIZE];
+
 uint32_t DAC_BUFFER[BUFFER_SIZE];
+
+float32_t WHILE_BUFFER1[BUFFER_SIZE];
+
 float32_t WHILE_BUFFER[BUFFER_SIZE];
-uint32_t FFT_BUFFER[BUFFER_SIZE];
+float32_t FFT_BUFFER[BUFFER_SIZE*2];
 
 
 uint8_t CDC_BUFFER[CDC_BUFFER_SIZE];
@@ -115,6 +117,9 @@ uint8_t CDC_BUFFER[CDC_BUFFER_SIZE];
 
 uint32_t DELAY_BUFFER_0[BUFFER_DELAY];
 uint32_t DELAY_BUFFER_1[BUFFER_DELAY];
+
+uint32_t DELAY_BUFFER1_0[BUFFER_DELAY];
+uint32_t DELAY_BUFFER1_1[BUFFER_DELAY];
 
 
 uint32_t ADC_VALUE;
@@ -204,7 +209,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-
+//  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
 
 
 
@@ -232,15 +237,15 @@ int main(void)
   HAL_TIM_IC_Start_IT(&htim15, TIM_CHANNEL_1);
   HAL_TIM_IC_Start_IT(&htim15, TIM_CHANNEL_2);
 
-  HAL_GPIO_WritePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin, 1);
+//  HAL_GPIO_WritePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin, 1);
 
 
-
-//  HAL_GPIO_DeInit(ERROR_LED_GPIO_Port, ERROR_LED_Pin);
 
 // //NOT OK !!! DONT USE
+//  HAL_GPIO_DeInit(ERROR_LED_GPIO_Port, ERROR_LED_Pin);
 //  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1||TIM_CHANNEL_2||TIM_CHANNEL_3||TIM_CHANNEL_4);
 //  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_ALL);
+
 
 
 
@@ -250,7 +255,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  __HAL_TIM_PRESCALER(&htim1,BOOT0_BTN_COUNT);//when 170Mhz 9 is best when 120Mhz 4 is best
+//	  __HAL_TIM_PRESCALER(&htim1,BOOT0_BTN_COUNT);//when 170Mhz 9 is best when 120Mhz 4 is best
+
+
 
 //	  WS2812_BRIGHTNESS=BOOT0_BTN_COUNT;
 		if (WHILE_FLAG==2) {
@@ -263,11 +270,25 @@ int main(void)
 //		 ws2812_gradient(100, 10);
 
 
-//	  CDC_Transmit_FS(CDC_BUFFER, 50);
 
-//			rainbow_effect(100, 10);
+			rainbow_effect(32, 10);
 
-//			fft_hamming_f32(WHILE_BUFFER, BUFFER_SIZE);
+			  switch (BOOT0_BTN_COUNT%5) {
+				case 1:
+					fft_bartlett_f32(WHILE_BUFFER, BUFFER_SIZE);
+					break;
+				case 2:
+					fft_blackman_harris_92db_f32(WHILE_BUFFER, BUFFER_SIZE);
+					break;
+				case 3:
+					fft_hamming_f32(WHILE_BUFFER, BUFFER_SIZE);
+					break;
+				case 4:
+					fft_hanning_f32(WHILE_BUFFER, BUFFER_SIZE);
+					break;
+				default:
+					break;
+			}
 		for (int i = 0; i < BUFFER_SIZE; ++i) {
 //		ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
 		ws2812_update_force();
@@ -999,6 +1020,8 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_GPIO_WritePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin, 1);
+
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
