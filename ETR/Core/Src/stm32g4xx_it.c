@@ -37,7 +37,7 @@ extern uint32_t USER_Freq ;
 extern uint8_t CDC_BUFFER;
 
 
-
+extern uint32_t BOOT0_BTN_COUNT;
 
 
 /* USER CODE END PD */
@@ -298,6 +298,20 @@ void USB_LP_IRQHandler(void)
   /* USER CODE BEGIN USB_LP_IRQn 1 */
 
   /* USER CODE END USB_LP_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+	BOOT0_BTN_COUNT=BOOT0_BTN_COUNT+1;
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+  /* USER CODE END EXTI9_5_IRQn 1 */
 }
 
 /**

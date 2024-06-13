@@ -1,11 +1,9 @@
 #include "ws2812.h"
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "stm32g4xx_hal_tim.h"
 
 
+// LED亮度
+uint8_t WS2812_GEAR=2;
+uint8_t WS2812_TOTALGEAR=5;
 
 
 // LED颜色
@@ -35,7 +33,7 @@ void ws2812_update(void)
 			p[i + 16] = (b << i) & (0x80) ? CODE_ONE_DUTY : CODE_ZERO_DUTY;
 		}
 	}
-	HAL_TIM_PWM_Start_DMA(&htim3, TIM_CHANNEL_4, (uint32_t *)ws2812_data,
+	HAL_TIM_PWM_Start_DMA(&WS2812TIM, TIM_CHANNEL_4, (uint32_t *)ws2812_data,
 						  RST_PERIOD_NUM + WS2812_NUM * 24);
 }
 
@@ -71,7 +69,7 @@ void ws2812_gradient(uint8_t steps, uint16_t delay_ms)
 			uint8_t g = (uint8_t)(start_g[led_id] + g_step[led_id] * step);
 			uint8_t b = (uint8_t)(start_b[led_id] + b_step[led_id] * step);
 
-			ws2812_set_rgb(led_id, r, g, b);
+			ws2812_set_rgba(led_id, r, g, b , 255);
 		}
 
 		ws2812_update();
@@ -79,24 +77,17 @@ void ws2812_gradient(uint8_t steps, uint16_t delay_ms)
 	}
 }
 
-/**
- * @brief  设置LED颜色(RGB格式)
- * @param  led_id: LED编号（学习板一共有10个LED，编号范围0-9）
- * @param  r: 红色亮度（0-255）
- * @param  g: 绿色亮度（0-255）
- * @param  b: 蓝色亮度（0-255）
- */
-void ws2812_set_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b)
-{
-	ws2812_color[led_id] = rgb_to_color(r, g, b);
-}
+
+
+
+
 
 /**
  * @brief  设置LED颜色（24bit颜色格式）
  * @param  led_id: LED编号（学习板一共有10个LED，编号范围0-9）
  * @param  color: 24bit颜色
  */
-void ws2812_set(uint8_t led_id, uint32_t color)
+void ws2812_set_24bit(uint8_t led_id, uint32_t color)
 {
 	ws2812_color[led_id] = color;
 }
@@ -126,6 +117,22 @@ uint32_t rgb_to_color(uint8_t r, uint8_t g, uint8_t b)
 }
 
 /**
+ * @brief  RGBA转换为24bit颜色
+ * @param  r: 红色亮度（0-255）
+ * @param  g: 绿色亮度（0-255）
+ * @param  b: 蓝色亮度（0-255）
+ * @param  a: 透明度  （0-255）
+ * @retval 24bit颜色
+ */
+uint32_t rgba_to_color(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+{
+	r=r*a/255;
+	g=g*a/255;
+	b=b*a/255;
+	return (r << 16) | (g << 8) | b;
+}
+
+/**
  * @brief  24bit颜色转换为RGB
  * @param  color: 24bit颜色
  * @param  r: 红色亮度（0-255）
@@ -137,6 +144,34 @@ void color_to_rgb(uint32_t color, uint8_t *r, uint8_t *g, uint8_t *b)
 	*r = (color >> 16) & 0xFF;
 	*g = (color >> 8) & 0xFF;
 	*b = color & 0xFF;
+}
+
+
+
+
+/**
+ * @brief  设置LED颜色(RGBA格式)
+ * @param  led_id: LED编号
+ * @param  r: 红色亮度（0-255）
+ * @param  g: 绿色亮度（0-255）
+ * @param  b: 蓝色亮度（0-255）
+ * @param  a: 透明度  （0-255）
+ */
+void ws2812_set_rgba(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+{
+	ws2812_color[led_id] = rgba_to_color(r, g, b, a);
+}
+
+/**
+ * @brief  设置LED颜色(RGB格式)
+ * @param  led_id: LED编号
+ * @param  r: 红色亮度（0-255）
+ * @param  g: 绿色亮度（0-255）
+ * @param  b: 蓝色亮度（0-255）
+ */
+void ws2812_set_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b)
+{
+	ws2812_color[led_id] = rgb_to_color(r, g, b);
 }
 
 // =============== 以下为额外的效果演示函数 ================
@@ -160,7 +195,7 @@ void rainbow_effect(uint8_t steps, uint16_t delay_ms)
 		for (uint8_t led_id = 0; led_id < WS2812_NUM; led_id++)
 		{
 			uint32_t color = rainbow_color(frequency, i + led_id * 2, center, width);
-			ws2812_set(led_id, color);
+			ws2812_set_24bit(led_id, color);
 		}
 		ws2812_update();
 		HAL_Delay(delay_ms);

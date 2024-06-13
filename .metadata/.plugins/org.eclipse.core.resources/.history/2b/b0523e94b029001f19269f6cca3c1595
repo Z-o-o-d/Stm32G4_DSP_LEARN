@@ -1,0 +1,55 @@
+#ifndef __WS2812_H__
+#define __WS2812_H__
+
+#include "main.h"
+#include "stdio.h"
+#include "string.h"
+#include "stm32g4xx_hal_tim.h"
+
+
+//on CuebeMX
+//	PWM Generation CHx
+// period  =  timer clock /  Prescaler
+// duty    =  Pulse  		/  Counter Period
+
+
+// on main()
+//  HAL_TIM_PWM_Start(&htimx, TIM_CHANNEL_x);
+////////////////////SETTINGs////////////////////
+#define WS2812TIM htim3
+#define WS2812Counter_Period 200
+#define CODE_ONE_DUTY  WS2812Counter_Period*2/3
+#define CODE_ZERO_DUTY WS2812Counter_Period*1/3
+
+#define RST_PERIOD_NUM 100
+
+#define WS2812_NUM 100
+
+
+
+
+extern uint8_t WS2812_BRIGHTNESS;
+extern uint32_t ws2812_color[WS2812_NUM];
+extern TIM_HandleTypeDef WS2812TIM;
+
+
+void ws2812_update(void);
+void ws2812_update_gradient(uint8_t steps, uint16_t delay_ms);
+
+
+
+void ws2812_set_24bit(uint8_t led_id, uint32_t color);
+void ws2812_set_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
+void ws2812_set_rgb_force(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
+void ws2812_set_rgba(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+void ws2812_set_all(uint32_t color);
+void _ws2812_color_to_rgb(uint32_t color, uint8_t *r, uint8_t *g, uint8_t *b);
+
+
+uint32_t _ws2812_rgba_to_color(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+uint32_t _ws2812_rgb_to_color(uint8_t r, uint8_t g, uint8_t b);
+
+//FXs
+void rainbow_effect(uint8_t steps, uint16_t delay_ms);
+
+#endif

@@ -41,7 +41,7 @@
 #define TOWHILE 1
 
 
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 1000
 #define BUFFER_SIZE_HALF BUFFER_SIZE/2
 #define BUFFER_DELAY 0
 
@@ -117,6 +117,7 @@ uint32_t DELAY_BUFFER_1[BUFFER_DELAY];
 uint32_t ADC_VALUE;
 uint32_t WHILE_FLAG=0;
 
+uint32_t BOOT0_BTN_COUNT=0;
 
 
 /* USER CODE END PV */
@@ -218,6 +219,10 @@ int main(void)
 
   HAL_GPIO_WritePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin, 1);
 
+
+
+//  HAL_GPIO_DeInit(ERROR_LED_GPIO_Port, ERROR_LED_Pin);
+
 // //NOT OK !!! DONT USE
 //  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1||TIM_CHANNEL_2||TIM_CHANNEL_3||TIM_CHANNEL_4);
 //  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_ALL);
@@ -230,29 +235,35 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  __HAL_TIM_PRESCALER(&htim1,BOOT0_BTN_COUNT);//when 170Mhz 9 is best
+
+//	  WS2812_BRIGHTNESS=BOOT0_BTN_COUNT;
 		if (WHILE_FLAG==2) {
 
 		 ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
-		 ws2812_gradient(10, 10);
+		 ws2812_gradient(100, 10);
 		 ws2812_set_all(rgb_to_color(0x00, 0x0f, 0x00));
-		 ws2812_gradient(10, 10);
+		 ws2812_gradient(100, 10);
 		 ws2812_set_all(rgb_to_color(0x0f, 0x00, 0x00));
-		 ws2812_gradient(10, 10);
+		 ws2812_gradient(100, 10);
+
+
 //	  sprintf(CDC_BUFFER,"-----WHILE-----      \r\n");
 //	  CDC_Transmit_FS(CDC_BUFFER, 50);
 
+			rainbow_effect(255, 10);
+
 		for (int i = 0; i < BUFFER_SIZE; ++i) {
-		HAL_Delay(2);
 
 
-
-		  sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value);
+		ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+		ws2812_update();
+		  sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT);
 		  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
 
 
 
 		}
-		  HAL_TIM_Base_Start(&htim1);
 
 		HAL_Delay(10);
 		  WHILE_FLAG=0;
@@ -590,7 +601,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 8-1;
+  htim1.Init.Prescaler = 15-1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim1.Init.Period = 2;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -964,6 +975,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PB8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
@@ -1076,7 +1097,7 @@ static void MX_GPIO_Init(void)
        if (uwIC2Value != 0)
        {
          /* Duty cycle computation */
-         uwDutyCycle = ((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 10000) / uwIC2Value;
+         uwDutyCycle = 255-((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 255) / uwIC2Value;
 
          /* uwFrequency computation
          TIM1 counter clock = (System Clock) */
