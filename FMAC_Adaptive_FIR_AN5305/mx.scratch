@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ScratchFile FileVersion="3.0">
+  <FileVersion>3.0</FileVersion>
+  <Workspace>
+    <WorkspaceType>Single-project</WorkspaceType>
+    <WorkspacePath>C:\Users\87407\OneDrive\Stm32G431\FMAC_Adaptive_FIR_AN5305\</WorkspacePath>
+    <underRoot>false</underRoot>
+    <TrustZone>0</TrustZone>
+    <HAL_Driver>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2</HAL_Driver>
+    <CMSIS>Drivers/CMSIS</CMSIS>
+    <Toolchain>STM32CubeIDE</Toolchain>
+    <IocFile>FMAC_Adaptive_FIR_AN5305.ioc</IocFile>
+    <Project>
+              
+      <ProjectName>FMAC_Adaptive_FIR_AN5305</ProjectName>
+           
+      <ProjectNature>C</ProjectNature>
+       
+      <Secure/>
+            
+      <filestoremove>
+                
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fmac.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>../../../../../Drivers/CMSIS/Device/ST/STM32G4xx/Source/Templates/system_stm32g4xx.c</name>
+                  
+        </file>
+        <file>
+                      
+          <name>stm32g4xx_it.h</name>
+                  
+        </file>
+        <file>
+                      
+          <name>stm32g4xx_hal_conf.h</name>
+                  
+        </file>
+        <file>
+                      
+          <name>main.h</name>
+                  
+        </file>
+                           
+      </filestoremove>
+          
+      <configs>
+        <config>
+              
+          <name>FMAC_Adaptive_FIR_AN5305</name>
+          	 
+          <mainSourceRepo>Src</mainSourceRepo>
+             
+          <sourceStructure>Basic</sourceStructure>
+           
+          <device>STM32G474RETx</device>
+          		     
+          <cpucore>ARM Cortex-M4</cpucore>
+                  
+          <fpu>SP</fpu>
+                
+          <memories>
+                       
+            <memory access="xrw" name="RAM" size="131072" start="0x20000000"/>
+                    
+            <memory access="rx" name="FLASH" size="524288" start="0x8000000"/>
+                
+          </memories>
+              
+          <startup>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\CMSIS\Device\ST\STM32G4xx\Source\Templates\gcc\startup_stm32g474xx.s</startup>
+                
+          <LinkSettings>
+            	
+            <LinkAdditionalLibs>	</LinkAdditionalLibs>
+          </LinkSettings>
+              
+          <heapSize>0x200</heapSize>
+              
+          <stackSize>0x400</stackSize>
+                  
+          <cpuclock>170</cpuclock>
+                  
+          <board>custom</board>
+              
+          <debugprobe>swd</debugprobe>
+              
+          <optimization/>
+              
+          <Aincludes>
+                    
+            <include/>
+                    
+          </Aincludes>
+              
+          <Adefines>        </Adefines>
+                
+          <Cdefines>
+                    
+            <define>USE_NUCLEO_64</define>
+                    
+            <define>USE_HAL_DRIVER</define>
+                    
+            <define>STM32G474xx</define>
+                    
+          </Cdefines>
+              
+          <Ldefines>        </Ldefines>
+                  
+          <Cincludes>
+            		        
+            <include>Inc</include>
+                    
+            <include>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Inc</include>
+                    
+            <include>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Inc\Legacy</include>
+                    
+            <include>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\CMSIS\Device\ST\STM32G4xx\Include</include>
+                    
+            <include>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\CMSIS\Include</include>
+                    
+            <include>..\..\..\..\..\..\Drivers\STM32G4xx_HAL_Driver\Inc</include>
+                    
+            <include>..\..\..\..\..\..\Drivers\STM32G4xx_HAL_Driver\Inc\Legacy</include>
+                    
+            <include>..\..\..\..\..\..\Drivers\CMSIS\Include</include>
+                    
+            <include>..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32G4xx\Include</include>
+                    
+            <include>..\..\..\..\..\..\Drivers\BSP\STM32G4xx_Nucleo</include>
+                    
+          </Cincludes>
+              
+          <definestoremove>
+                    
+            <Adefines>            </Adefines>
+                    
+            <Cdefines>
+                                  
+              <define>USE_FULL_LL_DRIVER</define>
+                                  
+              <define>USE_FULL_ASSERT=1U</define>
+                          
+            </Cdefines>
+                     
+            <Ldefines>            </Ldefines>
+                     
+          </definestoremove>
+              
+          <inctoremove>
+                    
+            <Aincludes>
+                          
+              <include/>
+                          
+            </Aincludes>
+                    
+            <Cincludes>
+                          
+              <include>..\..\..\..\..\Drivers\STM32G4xx_HAL_Driver\Inc</include>
+                          
+              <include>..\..\..\..\..\Drivers\STM32G4xx_HAL_Driver\Inc\Legacy</include>
+                          
+              <include>..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32G4xx\Include</include>
+                          
+              <include>..\..\..\..\..\Drivers\CMSIS\Include</include>
+                          
+              <include>..\..\..\..\..\Drivers\BSP\STM32G4xx_Nucleo</include>
+                          
+            </Cincludes>
+                    
+          </inctoremove>
+                 
+        </config>
+                
+      </configs>
+       
+      <copyAsReference>true</copyAsReference>
+       
+      <Groups>
+        <group>
+               
+          <name>Doc</name>
+                  
+          <file>
+                        
+            <name>readme.txt</name>
+                    
+          </file>
+              
+        </group>
+        <group>
+               
+          <name>Drivers</name>
+          <group>
+                 
+            <name>BSP</name>
+            <group>
+                   
+              <name>STM32G4xx_Nucleo</name>
+                      
+              <file>
+                            
+                <name>../../../../../../Drivers/BSP/STM32G4xx_Nucleo/stm32g4xx_nucleo.c</name>
+                        
+              </file>
+                  
+            </group>
+                
+          </group>
+              
+        </group>
+            
+        <group>
+                  
+          <name>Drivers</name>
+                                       
+          <group>
+                        
+            <name>STM32G4xx_HAL_Driver</name>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_uart.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_uart_ex.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_fmac.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c</name>
+                              
+            </file>
+                        
+            <file>
+                              
+              <name>C:\Users\87407\STM32Cube\Repository\STM32Cube_FW_G4_V1.5.2\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c</name>
+                              
+            </file>
+                        
+          </group>
+                  
+          <group>
+                        
+            <name>CMSIS</name>
+                            
+            <file>
+                                          
+              <name>Src/system_stm32g4xx.c</name>
+                                          
+            </file>
+                                    
+          </group>
+                  
+        </group>
+               
+        <group>
+                  
+          <name>Application</name>
+                  
+          <group>
+                        
+            <name>User</name>
+                                  
+            <file>
+                                  
+              <name>Src\main.c</name>
+                                  
+            </file>
+                            
+            <file>
+                                  
+              <name>Src\stm32g4xx_it.c</name>
+                                  
+            </file>
+                            
+            <file>
+                                  
+              <name>Src\stm32g4xx_hal_msp.c</name>
+                                  
+            </file>
+                        
+          </group>
+                   
+        </group>
+                
+      </Groups>
+    </Project>
+  </Workspace>
+</ScratchFile>

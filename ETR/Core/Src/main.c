@@ -31,7 +31,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+#define __IO volatile
 
 #define REF_V 2048
 
@@ -79,6 +79,7 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
+TIM_HandleTypeDef htim15;
 DMA_HandleTypeDef hdma_tim3_ch4;
 
 /* USER CODE BEGIN PV */
@@ -86,6 +87,14 @@ DMA_HandleTypeDef hdma_tim3_ch4;
 
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
+
+
+/* Captured Value */
+__IO uint32_t            uwIC2Value = 0;
+/* Duty Cycle Value */
+__IO uint32_t            uwDutyCycle = 0;
+/* Frequency Value */
+__IO uint32_t            uwFrequency = 0;
 
 
 uint32_t USER_Freq = 0x00;
@@ -125,6 +134,7 @@ static void MX_ADC3_Init(void);
 static void MX_OPAMP1_Init(void);
 static void MX_OPAMP3_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_TIM15_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -174,7 +184,10 @@ int main(void)
   MX_OPAMP1_Init();
   MX_OPAMP3_Init();
   MX_TIM1_Init();
+  MX_TIM15_Init();
   /* USER CODE BEGIN 2 */
+
+
 
 
 
@@ -185,19 +198,29 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc2, ADC_BUFFER, BUFFER_SIZE);
 
   HAL_TIM_Base_Start(&htim1);
+
   HAL_TIM_Base_Start(&htim2);
   HAL_TIM_Base_Start(&htim3);
   HAL_TIM_Base_Start_IT(&htim4);
+
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+
+
 
   HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_3);
   HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_4);
 
+  HAL_TIM_IC_Start_IT(&htim15, TIM_CHANNEL_1);
+  HAL_TIM_IC_Start_IT(&htim15, TIM_CHANNEL_2);
+
+  HAL_GPIO_WritePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin, 1);
+
 // //NOT OK !!! DONT USE
 //  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1||TIM_CHANNEL_2||TIM_CHANNEL_3||TIM_CHANNEL_4);
+//  HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_ALL);
 
 
 
@@ -209,27 +232,28 @@ int main(void)
   {
 		if (WHILE_FLAG==2) {
 
-		 ws2812_set_all(rgb_to_color(0xff, 0x00, 0x00));
-		 ws2812_gradient(100, 10);
-		 ws2812_set_all(rgb_to_color(0x00, 0x00, 0xff));
-		 ws2812_gradient(100, 10);
-		 ws2812_set_all(rgb_to_color(0x00, 0xff, 0x00));
-		 ws2812_gradient(100, 10);
+		 ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
+		 ws2812_gradient(10, 10);
+		 ws2812_set_all(rgb_to_color(0x00, 0x0f, 0x00));
+		 ws2812_gradient(10, 10);
+		 ws2812_set_all(rgb_to_color(0x0f, 0x00, 0x00));
+		 ws2812_gradient(10, 10);
 //	  sprintf(CDC_BUFFER,"-----WHILE-----      \r\n");
 //	  CDC_Transmit_FS(CDC_BUFFER, 50);
-
 
 		for (int i = 0; i < BUFFER_SIZE; ++i) {
 		HAL_Delay(2);
 
 
 
-		  sprintf(CDC_BUFFER,"Val:%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks);
+		  sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value);
 		  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
 
 
 
 		}
+		  HAL_TIM_Base_Start(&htim1);
+
 		HAL_Delay(10);
 		  WHILE_FLAG=0;
 		}
@@ -318,7 +342,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_TRGO;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC1;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
   hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
@@ -385,7 +409,7 @@ static void MX_ADC2_Init(void)
   hadc2.Init.ContinuousConvMode = DISABLE;
   hadc2.Init.NbrOfConversion = 1;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
-  hadc2.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC1;
+  hadc2.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC2;
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
   hadc2.Init.DMAContinuousRequests = ENABLE;
   hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
@@ -814,6 +838,80 @@ static void MX_TIM4_Init(void)
 }
 
 /**
+  * @brief TIM15 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM15_Init(void)
+{
+
+  /* USER CODE BEGIN TIM15_Init 0 */
+
+  /* USER CODE END TIM15_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_IC_InitTypeDef sConfigIC = {0};
+
+  /* USER CODE BEGIN TIM15_Init 1 */
+
+  /* USER CODE END TIM15_Init 1 */
+  htim15.Instance = TIM15;
+  htim15.Init.Prescaler = 0;
+  htim15.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim15.Init.Period = 65535;
+  htim15.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim15.Init.RepetitionCounter = 0;
+  htim15.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim15) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim15, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_IC_Init(&htim15) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
+  sSlaveConfig.InputTrigger = TIM_TS_TI1FP1;
+  sSlaveConfig.TriggerPolarity = TIM_INPUTCHANNELPOLARITY_FALLING;
+  sSlaveConfig.TriggerFilter = 0;
+  if (HAL_TIM_SlaveConfigSynchro(&htim15, &sSlaveConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim15, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_FALLING;
+  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+  sConfigIC.ICFilter = 0;
+  if (HAL_TIM_IC_ConfigChannel(&htim15, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
+  sConfigIC.ICSelection = TIM_ICSELECTION_INDIRECTTI;
+  if (HAL_TIM_IC_ConfigChannel(&htim15, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM15_Init 2 */
+
+  /* USER CODE END TIM15_Init 2 */
+
+}
+
+/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -857,10 +955,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, ERROR_LED_Pin|GPIO_PIN_10, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  /*Configure GPIO pins : ERROR_LED_Pin PA10 */
+  GPIO_InitStruct.Pin = ERROR_LED_Pin|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -960,6 +1058,41 @@ static void MX_GPIO_Init(void)
 
 
 
+ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+ {
+
+   if (htim->Instance == TIM15) // 判断是否为TIM15
+   {
+
+
+     if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+     {
+
+//  	   HAL_GPIO_TogglePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin);
+
+       /* Get the Input Capture value */
+       uwIC2Value = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+
+       if (uwIC2Value != 0)
+       {
+         /* Duty cycle computation */
+         uwDutyCycle = ((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 10000) / uwIC2Value;
+
+         /* uwFrequency computation
+         TIM1 counter clock = (System Clock) */
+         uwFrequency = ( HAL_RCC_GetSysClockFreq()  ) / uwIC2Value;
+
+       }
+       else
+       {
+         uwDutyCycle = 0;
+         uwFrequency = 0;
+       }
+     }
+   }
+ }
+
+
 
 
 
@@ -973,10 +1106,15 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+
+
+
+//  __disable_irq();
+  HAL_GPIO_WritePin(ERROR_LED_GPIO_Port, ERROR_LED_Pin, 0);
+//  while (1)
+//  {
+//
+//  }
   /* USER CODE END Error_Handler_Debug */
 }
 

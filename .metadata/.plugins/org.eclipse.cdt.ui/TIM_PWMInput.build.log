@@ -1,0 +1,7 @@
+22:13:19 **** Incremental Build of configuration Debug for project TIM_PWMInput ****
+make -j20 all 
+make: *** No rule to make target 'C:/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c', needed by 'Drivers/STM32G4xx_HAL_Driver/stm32g4xx_hal.o'.  Stop.
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+
+22:13:19 Build Failed. 1 errors, 0 warnings. (took 95ms)
+
