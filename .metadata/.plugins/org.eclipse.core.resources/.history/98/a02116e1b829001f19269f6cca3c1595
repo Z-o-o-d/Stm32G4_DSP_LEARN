@@ -240,9 +240,9 @@ int main(void)
   {
 	  __HAL_TIM_PRESCALER(&htim1,BOOT0_BTN_COUNT);//when 170Mhz 9 is best
 
-//	  WS2812_BRIGHTNESS=BOOT0_BTN_COUNT;
-		if (WHILE_FLAG==2) {
-
+////	  WS2812_BRIGHTNESS=BOOT0_BTN_COUNT;
+//		if (WHILE_FLAG==2) {
+//
 //		 ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
 //		 ws2812_gradient(100, 10);
 //		 ws2812_set_all(rgb_to_color(0x00, 0x0f, 0x00));
@@ -261,7 +261,7 @@ int main(void)
 
 		ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
 		ws2812_update_force();
-		  sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+		  sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
 		  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
 
 

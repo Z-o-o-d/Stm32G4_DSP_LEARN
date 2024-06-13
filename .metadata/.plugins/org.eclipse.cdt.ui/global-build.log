@@ -15140,3 +15140,410 @@ Finished building: default.size.stdout
  
 Finished building: ETR.list
  
+03:08:44 **** Incremental Build of configuration Debug for project ETR ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:246:18: warning: implicit declaration of function 'ws2812_set_all'; did you mean 'ws2812_set_rgb'? [-Wimplicit-function-declaration]
+  246 |                  ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
+      |                  ^~~~~~~~~~~~~~
+      |                  ws2812_set_rgb
+../Core/Src/main.c:246:33: warning: implicit declaration of function 'rgb_to_color' [-Wimplicit-function-declaration]
+  246 |                  ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
+      |                                 ^~~~~~~~~~~~
+../Core/Src/main.c:247:18: warning: implicit declaration of function 'ws2812_gradient'; did you mean 'ws2812_update_gradient'? [-Wimplicit-function-declaration]
+  247 |                  ws2812_gradient(100, 10);
+      |                  ^~~~~~~~~~~~~~~
+      |                  ws2812_update_gradient
+../Core/Src/main.c:264:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:264:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                           ~^                           ~~~~~~~~~~~~~~~
+      |                                            |                                       |
+      |                                            int                                     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:264:50: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                 ~^                                       ~~~~~~~~~~~~~~~~~
+      |                                                  |                                       |
+      |                                                  int                                     uint32_t {aka long unsigned int}
+      |                                                 %ld
+../Core/Src/main.c:264:53: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                    ~^                                                      ~~~~~~~~~~~
+      |                                                     |                                                      |
+      |                                                     int                                                    uint32_t {aka long unsigned int}
+      |                                                    %ld
+../Core/Src/main.c:264:56: warning: format '%d' expects argument of type 'int', but argument 7 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                       ~^                                                               ~~~~~~~~~~~
+      |                                                        |                                                               |
+      |                                                        int                                                             uint32_t {aka long unsigned int}
+      |                                                       %ld
+../Core/Src/main.c:264:59: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                          ~^                                                                        ~~~~~~~~~~
+      |                                                           |                                                                        |
+      |                                                           int                                                                      uint32_t {aka long unsigned int}
+      |                                                          %ld
+../Core/Src/main.c:264:62: warning: format '%d' expects argument of type 'int', but argument 9 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                             ~^                                                                                ~~~~~~~~~~~~~~~
+      |                                                              |                                                                                |
+      |                                                              int                                                                              uint32_t {aka long unsigned int}
+      |                                                             %ld
+../Core/Src/main.c:264:65: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                                ~^                                                                                             ~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                                                             |
+      |                                                                 int                                                                                           uint32_t {aka long unsigned int}
+      |                                                                %ld
+arm-none-eabi-gcc -o "ETR.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\ETR\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ETR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ETR.elf
+ 
+arm-none-eabi-size  ETR.elf 
+arm-none-eabi-objdump -h -S ETR.elf  > "ETR.list"
+   text	   data	    bss	    dec	    hex	filename
+  66324	    468	  21556	  88348	  1591c	ETR.elf
+Finished building: default.size.stdout
+ 
+Finished building: ETR.list
+ 
+03:10:22 **** Incremental Build of configuration Debug for project ETR ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/ws2812.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ws2812.d" -MT"Core/Src/ws2812.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ws2812.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:246:18: warning: implicit declaration of function 'ws2812_set_all'; did you mean 'ws2812_set_rgb'? [-Wimplicit-function-declaration]
+  246 |                  ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
+      |                  ^~~~~~~~~~~~~~
+      |                  ws2812_set_rgb
+../Core/Src/ws2812.c: In function 'ws2812_update_force':
+../Core/Src/ws2812.c:27:17: warning: implicit declaration of function 'color_to_rgb' [-Wimplicit-function-declaration]
+   27 |                 color_to_rgb(_ws2812_color_current[led_id], &r, &g, &b);
+      |                 ^~~~~~~~~~~~
+../Core/Src/ws2812.c: At top level:
+../Core/Src/ws2812.c:142:6: warning: conflicting types for 'color_to_rgb'; have 'void(uint32_t,  uint8_t *, uint8_t *, uint8_t *)' {aka 'void(long unsigned int,  unsigned char *, unsigned char *, unsigned char *)'}
+  142 | void color_to_rgb(uint32_t color, uint8_t *r, uint8_t *g, uint8_t *b)
+      |      ^~~~~~~~~~~~
+../Core/Src/ws2812.c:27:17: note: previous implicit declaration of 'color_to_rgb' with type 'void(uint32_t,  uint8_t *, uint8_t *, uint8_t *)' {aka 'void(long unsigned int,  unsigned char *, unsigned char *, unsigned char *)'}
+   27 |                 color_to_rgb(_ws2812_color_current[led_id], &r, &g, &b);
+      |                 ^~~~~~~~~~~~
+../Core/Src/ws2812.c: In function 'rainbow_color':
+../Core/Src/ws2812.c:181:19: warning: implicit declaration of function 'sinf' [-Wimplicit-function-declaration]
+  181 |         float r = sinf(frequency * phase + 0) * width + center;
+      |                   ^~~~
+../Core/Src/ws2812.c:2:1: note: include '<math.h>' or provide a declaration of 'sinf'
+    1 | #include "ws2812.h"
+  +++ |+#include <math.h>
+    2 | 
+../Core/Src/ws2812.c:181:19: warning: incompatible implicit declaration of built-in function 'sinf' [-Wbuiltin-declaration-mismatch]
+  181 |         float r = sinf(frequency * phase + 0) * width + center;
+      |                   ^~~~
+../Core/Src/ws2812.c:181:19: note: include '<math.h>' or provide a declaration of 'sinf'
+../Core/Src/main.c:246:33: warning: implicit declaration of function 'rgb_to_color' [-Wimplicit-function-declaration]
+  246 |                  ws2812_set_all(rgb_to_color(0x00, 0x00, 0x0f));
+      |                                 ^~~~~~~~~~~~
+../Core/Src/main.c:247:18: warning: implicit declaration of function 'ws2812_gradient'; did you mean 'ws2812_update_gradient'? [-Wimplicit-function-declaration]
+  247 |                  ws2812_gradient(100, 10);
+      |                  ^~~~~~~~~~~~~~~
+      |                  ws2812_update_gradient
+../Core/Src/main.c:264:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:264:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                           ~^                           ~~~~~~~~~~~~~~~
+      |                                            |                                       |
+      |                                            int                                     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:264:50: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                 ~^                                       ~~~~~~~~~~~~~~~~~
+      |                                                  |                                       |
+      |                                                  int                                     uint32_t {aka long unsigned int}
+      |                                                 %ld
+../Core/Src/main.c:264:53: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                    ~^                                                      ~~~~~~~~~~~
+      |                                                     |                                                      |
+      |                                                     int                                                    uint32_t {aka long unsigned int}
+      |                                                    %ld
+../Core/Src/main.c:264:56: warning: format '%d' expects argument of type 'int', but argument 7 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                       ~^                                                               ~~~~~~~~~~~
+      |                                                        |                                                               |
+      |                                                        int                                                             uint32_t {aka long unsigned int}
+      |                                                       %ld
+../Core/Src/main.c:264:59: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                          ~^                                                                        ~~~~~~~~~~
+      |                                                           |                                                                        |
+      |                                                           int                                                                      uint32_t {aka long unsigned int}
+      |                                                          %ld
+../Core/Src/main.c:264:62: warning: format '%d' expects argument of type 'int', but argument 9 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                             ~^                                                                                ~~~~~~~~~~~~~~~
+      |                                                              |                                                                                |
+      |                                                              int                                                                              uint32_t {aka long unsigned int}
+      |                                                             %ld
+../Core/Src/main.c:264:65: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                                ~^                                                                                             ~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                                                             |
+      |                                                                 int                                                                                           uint32_t {aka long unsigned int}
+      |                                                                %ld
+arm-none-eabi-gcc -o "ETR.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\ETR\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ETR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ETR.elf
+ 
+arm-none-eabi-size  ETR.elf 
+arm-none-eabi-objdump -h -S ETR.elf  > "ETR.list"
+   text	   data	    bss	    dec	    hex	filename
+  66324	    468	  21556	  88348	  1591c	ETR.elf
+Finished building: default.size.stdout
+ 
+Finished building: ETR.list
+ 
+03:12:11 **** Incremental Build of configuration Debug for project ETR ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:262:17: warning: implicit declaration of function 'ws2812_set_all'; did you mean 'ws2812_set_rgb'? [-Wimplicit-function-declaration]
+  262 |                 ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+      |                 ^~~~~~~~~~~~~~
+      |                 ws2812_set_rgb
+../Core/Src/main.c:262:32: warning: implicit declaration of function 'rgb_to_color' [-Wimplicit-function-declaration]
+  262 |                 ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+      |                                ^~~~~~~~~~~~
+../Core/Src/main.c:264:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:264:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                           ~^                           ~~~~~~~~~~~~~~~
+      |                                            |                                       |
+      |                                            int                                     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:264:50: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                 ~^                                       ~~~~~~~~~~~~~~~~~
+      |                                                  |                                       |
+      |                                                  int                                     uint32_t {aka long unsigned int}
+      |                                                 %ld
+../Core/Src/main.c:264:53: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                    ~^                                                      ~~~~~~~~~~~
+      |                                                     |                                                      |
+      |                                                     int                                                    uint32_t {aka long unsigned int}
+      |                                                    %ld
+../Core/Src/main.c:264:56: warning: format '%d' expects argument of type 'int', but argument 7 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                       ~^                                                               ~~~~~~~~~~~
+      |                                                        |                                                               |
+      |                                                        int                                                             uint32_t {aka long unsigned int}
+      |                                                       %ld
+../Core/Src/main.c:264:59: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                          ~^                                                                        ~~~~~~~~~~
+      |                                                           |                                                                        |
+      |                                                           int                                                                      uint32_t {aka long unsigned int}
+      |                                                          %ld
+../Core/Src/main.c:264:62: warning: format '%d' expects argument of type 'int', but argument 9 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                             ~^                                                                                ~~~~~~~~~~~~~~~
+      |                                                              |                                                                                |
+      |                                                              int                                                                              uint32_t {aka long unsigned int}
+      |                                                             %ld
+../Core/Src/main.c:264:65: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                                ~^                                                                                             ~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                                                             |
+      |                                                                 int                                                                                           uint32_t {aka long unsigned int}
+      |                                                                %ld
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:279:1: error: expected identifier or '(' before '}' token
+  279 | }
+      | ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+03:12:44 **** Incremental Build of configuration Debug for project ETR ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:262:17: warning: implicit declaration of function 'ws2812_set_all'; did you mean 'ws2812_set_rgb'? [-Wimplicit-function-declaration]
+  262 |                 ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+      |                 ^~~~~~~~~~~~~~
+      |                 ws2812_set_rgb
+../Core/Src/main.c:262:32: warning: implicit declaration of function 'rgb_to_color' [-Wimplicit-function-declaration]
+  262 |                 ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+      |                                ^~~~~~~~~~~~
+../Core/Src/main.c:264:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:264:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                           ~^                           ~~~~~~~~~~~~~~~
+      |                                            |                                       |
+      |                                            int                                     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:264:50: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                 ~^                                       ~~~~~~~~~~~~~~~~~
+      |                                                  |                                       |
+      |                                                  int                                     uint32_t {aka long unsigned int}
+      |                                                 %ld
+../Core/Src/main.c:264:53: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                    ~^                                                      ~~~~~~~~~~~
+      |                                                     |                                                      |
+      |                                                     int                                                    uint32_t {aka long unsigned int}
+      |                                                    %ld
+../Core/Src/main.c:264:56: warning: format '%d' expects argument of type 'int', but argument 7 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                       ~^                                                               ~~~~~~~~~~~
+      |                                                        |                                                               |
+      |                                                        int                                                             uint32_t {aka long unsigned int}
+      |                                                       %ld
+../Core/Src/main.c:264:59: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                          ~^                                                                        ~~~~~~~~~~
+      |                                                           |                                                                        |
+      |                                                           int                                                                      uint32_t {aka long unsigned int}
+      |                                                          %ld
+../Core/Src/main.c:264:62: warning: format '%d' expects argument of type 'int', but argument 9 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                             ~^                                                                                ~~~~~~~~~~~~~~~
+      |                                                              |                                                                                |
+      |                                                              int                                                                              uint32_t {aka long unsigned int}
+      |                                                             %ld
+../Core/Src/main.c:264:65: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                                ~^                                                                                             ~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                                                             |
+      |                                                                 int                                                                                           uint32_t {aka long unsigned int}
+      |                                                                %ld
+arm-none-eabi-gcc -o "ETR.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\ETR\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ETR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ETR.elf
+ 
+arm-none-eabi-size  ETR.elf 
+arm-none-eabi-objdump -h -S ETR.elf  > "ETR.list"
+   text	   data	    bss	    dec	    hex	filename
+  61424	    468	  20804	  82696	  14308	ETR.elf
+Finished building: default.size.stdout
+ 
+Finished building: ETR.list
+ 
+03:14:35 **** Incremental Build of configuration Debug for project ETR ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:262:17: warning: implicit declaration of function 'ws2812_set_all'; did you mean 'ws2812_set_rgb'? [-Wimplicit-function-declaration]
+  262 |                 ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+      |                 ^~~~~~~~~~~~~~
+      |                 ws2812_set_rgb
+../Core/Src/main.c:262:32: warning: implicit declaration of function 'rgb_to_color' [-Wimplicit-function-declaration]
+  262 |                 ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
+      |                                ^~~~~~~~~~~~
+../Core/Src/main.c:264:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_Device/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_Device/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:264:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long unsigned int' [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                           ~^                           ~~~~~~~~~~~~~~~~~~~~
+      |                                            |                                          |
+      |                                            int                                        long unsigned int
+      |                                           %ld
+../Core/Src/main.c:264:50: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                 ~^                                            ~~~~~~~~~~~~~~~~~
+      |                                                  |                                            |
+      |                                                  int                                          uint32_t {aka long unsigned int}
+      |                                                 %ld
+../Core/Src/main.c:264:53: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                    ~^                                                           ~~~~~~~~~~~
+      |                                                     |                                                           |
+      |                                                     int                                                         uint32_t {aka long unsigned int}
+      |                                                    %ld
+../Core/Src/main.c:264:56: warning: format '%d' expects argument of type 'int', but argument 7 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                       ~^                                                                    ~~~~~~~~~~~
+      |                                                        |                                                                    |
+      |                                                        int                                                                  uint32_t {aka long unsigned int}
+      |                                                       %ld
+../Core/Src/main.c:264:59: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                          ~^                                                                             ~~~~~~~~~~
+      |                                                           |                                                                             |
+      |                                                           int                                                                           uint32_t {aka long unsigned int}
+      |                                                          %ld
+../Core/Src/main.c:264:62: warning: format '%d' expects argument of type 'int', but argument 9 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                             ~^                                                                                     ~~~~~~~~~~~~~~~
+      |                                                              |                                                                                     |
+      |                                                              int                                                                                   uint32_t {aka long unsigned int}
+      |                                                             %ld
+../Core/Src/main.c:264:65: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  264 |                   sprintf(CDC_BUFFER,"Val:%d,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i]-2048,i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
+      |                                                                ~^                                                                                                  ~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                                                                  |
+      |                                                                 int                                                                                                uint32_t {aka long unsigned int}
+      |                                                                %ld
+arm-none-eabi-gcc -o "ETR.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\87407\OneDrive\Stm32G431\ETR\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ETR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ETR.elf
+ 
+arm-none-eabi-size  ETR.elf 
+arm-none-eabi-objdump -h -S ETR.elf  > "ETR.list"
+   text	   data	    bss	    dec	    hex	filename
+  61428	    468	  20804	  82700	  1430c	ETR.elf
+Finished building: default.size.stdout
+ 
+Finished building: ETR.list
+ 
