@@ -1,0 +1,4 @@
+../Core/Src/fft_windows.c:2:6:fft_hanning_f32	2
+../Core/Src/fft_windows.c:18:6:fft_hamming_f32	2
+../Core/Src/fft_windows.c:33:6:fft_bartlett_f32	3
+../Core/Src/fft_windows.c:52:6:fft_blackman_harris_92db_f32	2

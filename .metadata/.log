@@ -4511,3 +4511,54 @@ java.io.FileNotFoundException: C:\Users\87407\OneDrive\Stm32G431\ETR\Debug\ETR.e
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:23:45.481
+!MESSAGE Indexed 'ETR' (39 sources, 110 headers) in 2.08 sec: 14,466 declarations; 78,142 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0022%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:24:19.990
+!MESSAGE Indexed 'ETR' (38 sources, 109 headers) in 1.31 sec: 12,223 declarations; 73,800 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:25:22.337
+!MESSAGE Indexed 'ETR' (38 sources, 109 headers) in 1.26 sec: 12,223 declarations; 73,800 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:27:31.109
+!MESSAGE Indexed 'ETR' (38 sources, 109 headers) in 1.24 sec: 12,223 declarations; 73,800 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:31:52.239
+!MESSAGE Indexed 'ETR' (38 sources, 109 headers) in 1.17 sec: 12,223 declarations; 73,800 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:32:00.391
+!MESSAGE Indexed 'ETR' (38 sources, 109 headers) in 1.25 sec: 12,223 declarations; 73,800 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-14 03:56:34.394
+!MESSAGE Indexed 'ETR' (38 sources, 109 headers) in 1.15 sec: 12,229 declarations; 73,813 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 5012 2024-06-14 04:11:46.575
+!MESSAGE Terminate failed
+!SUBENTRY 1 org.eclipse.debug.core 4 5010 2024-06-14 04:11:46.575
+!MESSAGE Terminate failed
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-06-14 04:12:22.240
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.actions.DsfTerminateCommand$6
+!SESSION 2024-06-14 04:12:32.718 -----------------------------------------------
+eclipse.buildId=Version 1.15.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-06-14 04:12:45.136
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-06-14 04:12:45.137
+!MESSAGE Log4j2 initialized with config file C:\Users\87407\OneDrive\Stm32G431\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-06-14 04:12:48.182
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\87407'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-06-14 04:12:50.522
+!MESSAGE Started RMI Server, listening on port 41337

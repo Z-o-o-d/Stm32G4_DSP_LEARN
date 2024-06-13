@@ -1,2 +1,5 @@
 USER_CounterTicks
 ADC_BUFFER[0]
+uwIC2Value
+uwDutyCycle
+uwFrequency
