@@ -49,6 +49,7 @@ org.eclipse.cdt.internal.ui.text.doctools.doxygen.multi=75,113,227
 org.eclipse.cdt.internal.ui.text.doctools.doxygen.recognizedTag=73,93,111
 org.eclipse.cdt.internal.ui.text.doctools.doxygen.single=75,113,227
 org.eclipse.cdt.make.internal.ui.compare.MakefileMergeViewer=1|Consolas|11.25|0|WINDOWS|1|-15|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.cdt.ui.ColoredLabels.match_highlight=73,83,90
 org.eclipse.cdt.ui.ColoredLabels.writeaccess_highlight=52,46,35
 org.eclipse.cdt.ui.asm_directive=255,0,255
 org.eclipse.cdt.ui.asm_label=255,0,255

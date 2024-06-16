@@ -11,4 +11,11 @@
 	</section>
 	<section name="ImportExportAction">
 	</section>
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="-97"/>
+		<item key="DIALOG_Y_ORIGIN" value="-315"/>
+		<item key="DIALOG_WIDTH" value="810"/>
+		<item key="DIALOG_HEIGHT" value="737"/>
+		<item key="DIALOG_FONT_NAME" value="1|Consolas|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|49|Consolas"/>
+	</section>
 </section>
