@@ -1,19 +1,15 @@
 #include "ws2812.h"
 
-
-// LED亮度
-uint8_t WS2812_GEAR=2;
-uint8_t WS2812_TOTALGEAR=5;
-
-
 // LED颜色
 uint32_t ws2812_color[WS2812_NUM] = {0};
 
 // 当前LED颜色
 static uint32_t _ws2812_color_current[WS2812_NUM];
 
+
+
 /**
- * @brief 更新数据启动dma
+ * @description: 整理并发送数据
  */
 void ws2812_update_force(void)
 {
@@ -33,9 +29,24 @@ void ws2812_update_force(void)
 			p[i + 16] = (b << i) & (0x80) ? CODE_ONE_DUTY : CODE_ZERO_DUTY;
 		}
 	}
-	HAL_TIM_PWM_Start_DMA(&WS2812TIM, TIM_CHANNEL_4, (uint32_t *)ws2812_data,
+	HAL_TIM_PWM_Start_DMA(&WS2812TIM, WS2812TIM_TIM_CHANNEL, (uint32_t *)ws2812_data,
 						  RST_PERIOD_NUM + WS2812_NUM * 24);
 }
+
+// void ws2812_update_gradient(uint8_t steps, uint16_t delay_ms);
+
+// void ws2812_set_24bit(uint8_t led_id, uint32_t color);
+// void ws2812_set_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
+// void ws2812_set_rgba(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+// void ws2812_set_all_24bit(uint32_t color);
+// void ws2812_set_all_rgb(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b);
+// void ws2812_set_all_rgba(uint8_t led_id, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+
+
+
+// uint32_t rgba_to_24bit(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+// uint32_t rgb_to_24bit(uint8_t r, uint8_t g, uint8_t b);
+
 
 /**
  * @brief  通过渐变方式更新LED颜色（线性插值）
@@ -68,10 +79,8 @@ void ws2812_gradient(uint8_t steps, uint16_t delay_ms)
 			uint8_t r = (uint8_t)(start_r[led_id] + r_step[led_id] * step);
 			uint8_t g = (uint8_t)(start_g[led_id] + g_step[led_id] * step);
 			uint8_t b = (uint8_t)(start_b[led_id] + b_step[led_id] * step);
-
-			ws2812_set_rgba(led_id, r, g, b , 255);
+			ws2812_set_rgb(led_id, r, g, b);
 		}
-
 		ws2812_update_force();
 		HAL_Delay(delay_ms);
 	}
@@ -81,12 +90,6 @@ void ws2812_gradient(uint8_t steps, uint16_t delay_ms)
 
 
 
-
-/**
- * @brief  设置LED颜色（24bit颜色格式）
- * @param  led_id: LED编号（学习板一共有10个LED，编号范围0-9）
- * @param  color: 24bit颜色
- */
 void ws2812_set_24bit(uint8_t led_id, uint32_t color)
 {
 	ws2812_color[led_id] = color;

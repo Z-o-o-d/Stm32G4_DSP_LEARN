@@ -38,7 +38,7 @@
 #define __IO volatile
 
 #define VREF_VOLTAGE 2.0f  // 参�?�电压为3.3V
-#define ADC_RESOLUTION 4095.0f  // ADC分辨率为12�?
+#define ADC_RESOLUTION 4095.0f  // ADC分辨率为12�???
 //#define LOOP 1
 //#define DELAY 1
 #define TOWHILE 1
@@ -256,9 +256,6 @@ int main(void)
   while (1)
   {
 //	  __HAL_TIM_PRESCALER(&htim1,BOOT0_BTN_COUNT);//when 170Mhz 9 is best when 120Mhz 4 is best
-
-
-
 //	  WS2812_BRIGHTNESS=BOOT0_BTN_COUNT;
 		if (WHILE_FLAG==2) {
 
@@ -271,7 +268,7 @@ int main(void)
 
 
 
-			rainbow_effect(32, 10);
+			rainbow_effect(255, 10);
 
 			  switch (BOOT0_BTN_COUNT%5) {
 				case 1:
@@ -1133,7 +1130,7 @@ static void MX_GPIO_Init(void)
        if (uwIC2Value != 0)
        {
          /* Duty cycle computation */
-         uwDutyCycle = 255-((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 255) / uwIC2Value;
+         uwDutyCycle = 100-((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 100) / uwIC2Value;
 
          /* uwFrequency computation
          TIM1 counter clock = (System Clock) */

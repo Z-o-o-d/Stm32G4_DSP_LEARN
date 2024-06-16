@@ -21,31 +21,31 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   8 .data         0000034c  20000000  08015118  00017000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00003ef4  2000034c  08015464  0001734c  2**2
+  9 .bss          000045fc  2000034c  08015464  0001734c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20004240  08015464  00018240  2**0
+ 10 ._user_heap_stack 00000600  20004948  08015464  00017948  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0001734c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0001dd33  00000000  00000000  0001737c  2**0
+ 12 .debug_info   0001dd13  00000000  00000000  0001737c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000046a1  00000000  00000000  000350af  2**0
+ 13 .debug_abbrev 0000468c  00000000  00000000  0003508f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001a48  00000000  00000000  00039750  2**3
+ 14 .debug_aranges 00001a48  00000000  00000000  00039720  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 000013ff  00000000  00000000  0003b198  2**0
+ 15 .debug_rnglists 000013ff  00000000  00000000  0003b168  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0002c809  00000000  00000000  0003c597  2**0
+ 16 .debug_macro  0002c809  00000000  00000000  0003c567  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000200cf  00000000  00000000  00068da0  2**0
+ 17 .debug_line   000200cd  00000000  00000000  00068d70  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00116006  00000000  00000000  00088e6f  2**0
+ 18 .debug_str    00115fea  00000000  00000000  00088e3d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  0019ee75  2**0
+ 19 .comment      00000043  00000000  00000000  0019ee27  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000084ec  00000000  00000000  0019eeb8  2**2
+ 20 .debug_frame  000084ec  00000000  00000000  0019ee6c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000054  00000000  00000000  001a73a4  2**0
+ 21 .debug_line_str 00000054  00000000  00000000  001a7358  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1550,10 +1550,10 @@ int main(void)
  8001126:	2104      	movs	r1, #4
  8001128:	4846      	ldr	r0, [pc, #280]	@ (8001244 <main+0x1c8>)
  800112a:	f007 fe69 	bl	8008e00 <HAL_TIM_IC_Start_IT>
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
 //	  __HAL_TIM_PRESCALER(&htim1,BOOT0_BTN_COUNT);//when 170Mhz 9 is best when 120Mhz 4 is best
-
-
-
 //	  WS2812_BRIGHTNESS=BOOT0_BTN_COUNT;
 		if (WHILE_FLAG==2) {
  800112e:	4b46      	ldr	r3, [pc, #280]	@ (8001248 <main+0x1cc>)
@@ -1565,9 +1565,9 @@ int main(void)
 
 
 
-			rainbow_effect(32, 10);
+			rainbow_effect(255, 10);
  8001136:	210a      	movs	r1, #10
- 8001138:	2020      	movs	r0, #32
+ 8001138:	20ff      	movs	r0, #255	@ 0xff
  800113a:	f001 fcd5 	bl	8002ae8 <rainbow_effect>
 
 			  switch (BOOT0_BTN_COUNT%5) {
@@ -3765,18 +3765,17 @@ static void MX_GPIO_Init(void)
  8001e46:	d019      	beq.n	8001e7c <HAL_TIM_IC_CaptureCallback+0x64>
        {
          /* Duty cycle computation */
-         uwDutyCycle = 255-((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 255) / uwIC2Value;
+         uwDutyCycle = 100-((HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)) * 100) / uwIC2Value;
  8001e48:	2104      	movs	r1, #4
  8001e4a:	6878      	ldr	r0, [r7, #4]
  8001e4c:	f007 fdfa 	bl	8009a44 <HAL_TIM_ReadCapturedValue>
- 8001e50:	4602      	mov	r2, r0
- 8001e52:	4613      	mov	r3, r2
- 8001e54:	021b      	lsls	r3, r3, #8
- 8001e56:	1a9a      	subs	r2, r3, r2
+ 8001e50:	4603      	mov	r3, r0
+ 8001e52:	2264      	movs	r2, #100	@ 0x64
+ 8001e54:	fb03 f202 	mul.w	r2, r3, r2
  8001e58:	4b0e      	ldr	r3, [pc, #56]	@ (8001e94 <HAL_TIM_IC_CaptureCallback+0x7c>)
  8001e5a:	681b      	ldr	r3, [r3, #0]
  8001e5c:	fbb2 f3f3 	udiv	r3, r2, r3
- 8001e60:	f1c3 03ff 	rsb	r3, r3, #255	@ 0xff
+ 8001e60:	f1c3 0364 	rsb	r3, r3, #100	@ 0x64
  8001e64:	4a0c      	ldr	r2, [pc, #48]	@ (8001e98 <HAL_TIM_IC_CaptureCallback+0x80>)
  8001e66:	6013      	str	r3, [r2, #0]
 
@@ -5141,7 +5140,7 @@ void USB_LP_IRQHandler(void)
  800260e:	bf00      	nop
  8002610:	bd80      	pop	{r7, pc}
  8002612:	bf00      	nop
- 8002614:	20003bf8 	.word	0x20003bf8
+ 8002614:	20004300 	.word	0x20004300
 
 08002618 <EXTI9_5_IRQHandler>:
 
@@ -5540,7 +5539,7 @@ void *_sbrk(ptrdiff_t incr)
  80027f8:	20020000 	.word	0x20020000
  80027fc:	00000400 	.word	0x00000400
  8002800:	20001b60 	.word	0x20001b60
- 8002804:	20004240 	.word	0x20004240
+ 8002804:	20004948 	.word	0x20004948
 
 08002808 <SystemInit>:
   * @param  None
@@ -5575,7 +5574,7 @@ void SystemInit(void)
 0800282c <ws2812_update_force>:
 
 /**
- * @brief 更新数据启动dma
+ * @description: 整理并发送数据
  */
 void ws2812_update_force(void)
 {
@@ -5588,7 +5587,7 @@ void ws2812_update_force(void)
 	for (uint8_t led_id = 0; led_id < WS2812_NUM; led_id++)
  8002832:	2300      	movs	r3, #0
  8002834:	71fb      	strb	r3, [r7, #7]
- 8002836:	e060      	b.n	80028fa <ws2812_update_force+0xce>
+ 8002836:	e061      	b.n	80028fc <ws2812_update_force+0xd0>
 	{
 		_ws2812_color_current[led_id] = ws2812_color[led_id];
  8002838:	79fa      	ldrb	r2, [r7, #7]
@@ -5612,100 +5611,99 @@ void ws2812_update_force(void)
  800285e:	005b      	lsls	r3, r3, #1
  8002860:	4413      	add	r3, r2
  8002862:	011b      	lsls	r3, r3, #4
- 8002864:	33c8      	adds	r3, #200	@ 0xc8
- 8002866:	4a31      	ldr	r2, [pc, #196]	@ (800292c <ws2812_update_force+0x100>)
- 8002868:	4413      	add	r3, r2
- 800286a:	603b      	str	r3, [r7, #0]
+ 8002864:	f503 63fa 	add.w	r3, r3, #2000	@ 0x7d0
+ 8002868:	4a30      	ldr	r2, [pc, #192]	@ (800292c <ws2812_update_force+0x100>)
+ 800286a:	4413      	add	r3, r2
+ 800286c:	603b      	str	r3, [r7, #0]
 		for (uint8_t i = 0; i < 8; i++)
- 800286c:	2300      	movs	r3, #0
- 800286e:	71bb      	strb	r3, [r7, #6]
- 8002870:	e03d      	b.n	80028ee <ws2812_update_force+0xc2>
+ 800286e:	2300      	movs	r3, #0
+ 8002870:	71bb      	strb	r3, [r7, #6]
+ 8002872:	e03d      	b.n	80028f0 <ws2812_update_force+0xc4>
 		{
 			p[i] = (r << i) & (0x80) ? CODE_ONE_DUTY : CODE_ZERO_DUTY;
- 8002872:	4b2d      	ldr	r3, [pc, #180]	@ (8002928 <ws2812_update_force+0xfc>)
- 8002874:	781b      	ldrb	r3, [r3, #0]
- 8002876:	461a      	mov	r2, r3
- 8002878:	79bb      	ldrb	r3, [r7, #6]
- 800287a:	fa02 f303 	lsl.w	r3, r2, r3
- 800287e:	f003 0380 	and.w	r3, r3, #128	@ 0x80
- 8002882:	2b00      	cmp	r3, #0
- 8002884:	d001      	beq.n	800288a <ws2812_update_force+0x5e>
- 8002886:	2164      	movs	r1, #100	@ 0x64
- 8002888:	e000      	b.n	800288c <ws2812_update_force+0x60>
- 800288a:	2132      	movs	r1, #50	@ 0x32
- 800288c:	79bb      	ldrb	r3, [r7, #6]
- 800288e:	005b      	lsls	r3, r3, #1
- 8002890:	683a      	ldr	r2, [r7, #0]
- 8002892:	4413      	add	r3, r2
- 8002894:	460a      	mov	r2, r1
- 8002896:	801a      	strh	r2, [r3, #0]
+ 8002874:	4b2c      	ldr	r3, [pc, #176]	@ (8002928 <ws2812_update_force+0xfc>)
+ 8002876:	781b      	ldrb	r3, [r3, #0]
+ 8002878:	461a      	mov	r2, r3
+ 800287a:	79bb      	ldrb	r3, [r7, #6]
+ 800287c:	fa02 f303 	lsl.w	r3, r2, r3
+ 8002880:	f003 0380 	and.w	r3, r3, #128	@ 0x80
+ 8002884:	2b00      	cmp	r3, #0
+ 8002886:	d001      	beq.n	800288c <ws2812_update_force+0x60>
+ 8002888:	2164      	movs	r1, #100	@ 0x64
+ 800288a:	e000      	b.n	800288e <ws2812_update_force+0x62>
+ 800288c:	2132      	movs	r1, #50	@ 0x32
+ 800288e:	79bb      	ldrb	r3, [r7, #6]
+ 8002890:	005b      	lsls	r3, r3, #1
+ 8002892:	683a      	ldr	r2, [r7, #0]
+ 8002894:	4413      	add	r3, r2
+ 8002896:	460a      	mov	r2, r1
+ 8002898:	801a      	strh	r2, [r3, #0]
 			p[i + 8] = (g << i) & (0x80) ? CODE_ONE_DUTY : CODE_ZERO_DUTY;
- 8002898:	4b22      	ldr	r3, [pc, #136]	@ (8002924 <ws2812_update_force+0xf8>)
- 800289a:	781b      	ldrb	r3, [r3, #0]
- 800289c:	461a      	mov	r2, r3
- 800289e:	79bb      	ldrb	r3, [r7, #6]
- 80028a0:	fa02 f303 	lsl.w	r3, r2, r3
- 80028a4:	f003 0380 	and.w	r3, r3, #128	@ 0x80
- 80028a8:	2b00      	cmp	r3, #0
- 80028aa:	d001      	beq.n	80028b0 <ws2812_update_force+0x84>
- 80028ac:	2164      	movs	r1, #100	@ 0x64
- 80028ae:	e000      	b.n	80028b2 <ws2812_update_force+0x86>
- 80028b0:	2132      	movs	r1, #50	@ 0x32
- 80028b2:	79bb      	ldrb	r3, [r7, #6]
- 80028b4:	3308      	adds	r3, #8
- 80028b6:	005b      	lsls	r3, r3, #1
- 80028b8:	683a      	ldr	r2, [r7, #0]
- 80028ba:	4413      	add	r3, r2
- 80028bc:	460a      	mov	r2, r1
- 80028be:	801a      	strh	r2, [r3, #0]
+ 800289a:	4b22      	ldr	r3, [pc, #136]	@ (8002924 <ws2812_update_force+0xf8>)
+ 800289c:	781b      	ldrb	r3, [r3, #0]
+ 800289e:	461a      	mov	r2, r3
+ 80028a0:	79bb      	ldrb	r3, [r7, #6]
+ 80028a2:	fa02 f303 	lsl.w	r3, r2, r3
+ 80028a6:	f003 0380 	and.w	r3, r3, #128	@ 0x80
+ 80028aa:	2b00      	cmp	r3, #0
+ 80028ac:	d001      	beq.n	80028b2 <ws2812_update_force+0x86>
+ 80028ae:	2164      	movs	r1, #100	@ 0x64
+ 80028b0:	e000      	b.n	80028b4 <ws2812_update_force+0x88>
+ 80028b2:	2132      	movs	r1, #50	@ 0x32
+ 80028b4:	79bb      	ldrb	r3, [r7, #6]
+ 80028b6:	3308      	adds	r3, #8
+ 80028b8:	005b      	lsls	r3, r3, #1
+ 80028ba:	683a      	ldr	r2, [r7, #0]
+ 80028bc:	4413      	add	r3, r2
+ 80028be:	460a      	mov	r2, r1
+ 80028c0:	801a      	strh	r2, [r3, #0]
 			p[i + 16] = (b << i) & (0x80) ? CODE_ONE_DUTY : CODE_ZERO_DUTY;
- 80028c0:	4b17      	ldr	r3, [pc, #92]	@ (8002920 <ws2812_update_force+0xf4>)
- 80028c2:	781b      	ldrb	r3, [r3, #0]
- 80028c4:	461a      	mov	r2, r3
- 80028c6:	79bb      	ldrb	r3, [r7, #6]
- 80028c8:	fa02 f303 	lsl.w	r3, r2, r3
- 80028cc:	f003 0380 	and.w	r3, r3, #128	@ 0x80
- 80028d0:	2b00      	cmp	r3, #0
- 80028d2:	d001      	beq.n	80028d8 <ws2812_update_force+0xac>
- 80028d4:	2164      	movs	r1, #100	@ 0x64
- 80028d6:	e000      	b.n	80028da <ws2812_update_force+0xae>
- 80028d8:	2132      	movs	r1, #50	@ 0x32
- 80028da:	79bb      	ldrb	r3, [r7, #6]
- 80028dc:	3310      	adds	r3, #16
- 80028de:	005b      	lsls	r3, r3, #1
- 80028e0:	683a      	ldr	r2, [r7, #0]
- 80028e2:	4413      	add	r3, r2
- 80028e4:	460a      	mov	r2, r1
- 80028e6:	801a      	strh	r2, [r3, #0]
+ 80028c2:	4b17      	ldr	r3, [pc, #92]	@ (8002920 <ws2812_update_force+0xf4>)
+ 80028c4:	781b      	ldrb	r3, [r3, #0]
+ 80028c6:	461a      	mov	r2, r3
+ 80028c8:	79bb      	ldrb	r3, [r7, #6]
+ 80028ca:	fa02 f303 	lsl.w	r3, r2, r3
+ 80028ce:	f003 0380 	and.w	r3, r3, #128	@ 0x80
+ 80028d2:	2b00      	cmp	r3, #0
+ 80028d4:	d001      	beq.n	80028da <ws2812_update_force+0xae>
+ 80028d6:	2164      	movs	r1, #100	@ 0x64
+ 80028d8:	e000      	b.n	80028dc <ws2812_update_force+0xb0>
+ 80028da:	2132      	movs	r1, #50	@ 0x32
+ 80028dc:	79bb      	ldrb	r3, [r7, #6]
+ 80028de:	3310      	adds	r3, #16
+ 80028e0:	005b      	lsls	r3, r3, #1
+ 80028e2:	683a      	ldr	r2, [r7, #0]
+ 80028e4:	4413      	add	r3, r2
+ 80028e6:	460a      	mov	r2, r1
+ 80028e8:	801a      	strh	r2, [r3, #0]
 		for (uint8_t i = 0; i < 8; i++)
- 80028e8:	79bb      	ldrb	r3, [r7, #6]
- 80028ea:	3301      	adds	r3, #1
- 80028ec:	71bb      	strb	r3, [r7, #6]
- 80028ee:	79bb      	ldrb	r3, [r7, #6]
- 80028f0:	2b07      	cmp	r3, #7
- 80028f2:	d9be      	bls.n	8002872 <ws2812_update_force+0x46>
+ 80028ea:	79bb      	ldrb	r3, [r7, #6]
+ 80028ec:	3301      	adds	r3, #1
+ 80028ee:	71bb      	strb	r3, [r7, #6]
+ 80028f0:	79bb      	ldrb	r3, [r7, #6]
+ 80028f2:	2b07      	cmp	r3, #7
+ 80028f4:	d9be      	bls.n	8002874 <ws2812_update_force+0x48>
 	for (uint8_t led_id = 0; led_id < WS2812_NUM; led_id++)
- 80028f4:	79fb      	ldrb	r3, [r7, #7]
- 80028f6:	3301      	adds	r3, #1
- 80028f8:	71fb      	strb	r3, [r7, #7]
- 80028fa:	79fb      	ldrb	r3, [r7, #7]
- 80028fc:	2b31      	cmp	r3, #49	@ 0x31
- 80028fe:	d99b      	bls.n	8002838 <ws2812_update_force+0xc>
+ 80028f6:	79fb      	ldrb	r3, [r7, #7]
+ 80028f8:	3301      	adds	r3, #1
+ 80028fa:	71fb      	strb	r3, [r7, #7]
+ 80028fc:	79fb      	ldrb	r3, [r7, #7]
+ 80028fe:	2b31      	cmp	r3, #49	@ 0x31
+ 8002900:	d99a      	bls.n	8002838 <ws2812_update_force+0xc>
 		}
 	}
-	HAL_TIM_PWM_Start_DMA(&WS2812TIM, TIM_CHANNEL_4, (uint32_t *)ws2812_data,
- 8002900:	f240 5314 	movw	r3, #1300	@ 0x514
- 8002904:	4a09      	ldr	r2, [pc, #36]	@ (800292c <ws2812_update_force+0x100>)
- 8002906:	210c      	movs	r1, #12
- 8002908:	4809      	ldr	r0, [pc, #36]	@ (8002930 <ws2812_update_force+0x104>)
- 800290a:	f005 ffeb 	bl	80088e4 <HAL_TIM_PWM_Start_DMA>
+	HAL_TIM_PWM_Start_DMA(&WS2812TIM, WS2812TIM_TIM_CHANNEL, (uint32_t *)ws2812_data,
+ 8002902:	f640 0398 	movw	r3, #2200	@ 0x898
+ 8002906:	4a09      	ldr	r2, [pc, #36]	@ (800292c <ws2812_update_force+0x100>)
+ 8002908:	210c      	movs	r1, #12
+ 800290a:	4809      	ldr	r0, [pc, #36]	@ (8002930 <ws2812_update_force+0x104>)
+ 800290c:	f005 ffea 	bl	80088e4 <HAL_TIM_PWM_Start_DMA>
 						  RST_PERIOD_NUM + WS2812_NUM * 24);
 }
- 800290e:	bf00      	nop
- 8002910:	3708      	adds	r7, #8
- 8002912:	46bd      	mov	sp, r7
- 8002914:	bd80      	pop	{r7, pc}
- 8002916:	bf00      	nop
+ 8002910:	bf00      	nop
+ 8002912:	3708      	adds	r7, #8
+ 8002914:	46bd      	mov	sp, r7
+ 8002916:	bd80      	pop	{r7, pc}
  8002918:	20001b64 	.word	0x20001b64
  800291c:	20001c2c 	.word	0x20001c2c
  8002920:	20001cf6 	.word	0x20001cf6
@@ -5715,10 +5713,10 @@ void ws2812_update_force(void)
  8002930:	200006dc 	.word	0x200006dc
 
 08002934 <ws2812_set_24bit>:
- * @brief  设置LED颜色（24bit颜色格式）
- * @param  led_id: LED编号（学习板一共有10个LED，编号范围0-9）
- * @param  color: 24bit颜色
- */
+
+
+
+
 void ws2812_set_24bit(uint8_t led_id, uint32_t color)
 {
  8002934:	b480      	push	{r7}
@@ -6088,7 +6086,7 @@ LoopForever:
   ldr r2, =_sbss
  8002bb0:	2000034c 	.word	0x2000034c
   ldr r4, =_ebss
- 8002bb4:	20004240 	.word	0x20004240
+ 8002bb4:	20004948 	.word	0x20004948
 
 08002bb8 <ADC3_IRQHandler>:
  * @retval : None
@@ -6262,7 +6260,7 @@ __weak void HAL_IncTick(void)
  8002c74:	46bd      	mov	sp, r7
  8002c76:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002c7a:	4770      	bx	lr
- 8002c7c:	20002720 	.word	0x20002720
+ 8002c7c:	20002e28 	.word	0x20002e28
  8002c80:	20000008 	.word	0x20000008
 
 08002c84 <HAL_GetTick>:
@@ -6283,7 +6281,7 @@ __weak uint32_t HAL_GetTick(void)
  8002c90:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002c94:	4770      	bx	lr
  8002c96:	bf00      	nop
- 8002c98:	20002720 	.word	0x20002720
+ 8002c98:	20002e28 	.word	0x20002e28
 
 08002c9c <HAL_Delay>:
   *       implementations in user file.
@@ -35793,7 +35791,7 @@ static USBD_StatusTypeDef USBD_SetConfig(USBD_HandleTypeDef *pdev, USBD_SetupReq
  800e8f6:	46bd      	mov	sp, r7
  800e8f8:	bd80      	pop	{r7, pc}
  800e8fa:	bf00      	nop
- 800e8fc:	20002724 	.word	0x20002724
+ 800e8fc:	20002e2c 	.word	0x20002e2c
 
 0800e900 <USBD_GetConfig>:
   * @param  pdev: device instance
@@ -36582,7 +36580,7 @@ void MX_USB_Device_Init(void)
  800ece4:	bf00      	nop
  800ece6:	bd80      	pop	{r7, pc}
  800ece8:	20000130 	.word	0x20000130
- 800ecec:	20002728 	.word	0x20002728
+ 800ecec:	20002e30 	.word	0x20002e30
  800ecf0:	20000018 	.word	0x20000018
  800ecf4:	2000011c 	.word	0x2000011c
 
@@ -36612,9 +36610,9 @@ static int8_t CDC_Init_FS(void)
 }
  800ed10:	4618      	mov	r0, r3
  800ed12:	bd80      	pop	{r7, pc}
- 800ed14:	200031f8 	.word	0x200031f8
- 800ed18:	20002728 	.word	0x20002728
- 800ed1c:	200029f8 	.word	0x200029f8
+ 800ed14:	20003900 	.word	0x20003900
+ 800ed18:	20002e30 	.word	0x20002e30
+ 800ed1c:	20003100 	.word	0x20003100
 
 0800ed20 <CDC_DeInit_FS>:
 /**
@@ -36741,7 +36739,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
  800ee0a:	46bd      	mov	sp, r7
  800ee0c:	bd80      	pop	{r7, pc}
  800ee0e:	bf00      	nop
- 800ee10:	20002728 	.word	0x20002728
+ 800ee10:	20002e30 	.word	0x20002e30
 
 0800ee14 <CDC_Transmit_FS>:
   * @param  Buf: Buffer of data to be sent
@@ -36793,7 +36791,7 @@ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
  800ee56:	46bd      	mov	sp, r7
  800ee58:	bd80      	pop	{r7, pc}
  800ee5a:	bf00      	nop
- 800ee5c:	20002728 	.word	0x20002728
+ 800ee5c:	20002e30 	.word	0x20002e30
 
 0800ee60 <CDC_TransmitCplt_FS>:
   * @param  Buf: Buffer of data to be received
@@ -36924,7 +36922,7 @@ uint8_t * USBD_CDC_ProductStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *lengt
  800eefa:	46bd      	mov	sp, r7
  800eefc:	bd80      	pop	{r7, pc}
  800eefe:	bf00      	nop
- 800ef00:	200039f8 	.word	0x200039f8
+ 800ef00:	20004100 	.word	0x20004100
  800ef04:	080148b4 	.word	0x080148b4
 
 0800ef08 <USBD_CDC_ManufacturerStrDescriptor>:
@@ -36953,7 +36951,7 @@ uint8_t * USBD_CDC_ManufacturerStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *
  800ef22:	3708      	adds	r7, #8
  800ef24:	46bd      	mov	sp, r7
  800ef26:	bd80      	pop	{r7, pc}
- 800ef28:	200039f8 	.word	0x200039f8
+ 800ef28:	20004100 	.word	0x20004100
  800ef2c:	080148cc 	.word	0x080148cc
 
 0800ef30 <USBD_CDC_SerialStrDescriptor>:
@@ -37034,7 +37032,7 @@ uint8_t * USBD_CDC_ConfigStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *length
  800ef82:	46bd      	mov	sp, r7
  800ef84:	bd80      	pop	{r7, pc}
  800ef86:	bf00      	nop
- 800ef88:	200039f8 	.word	0x200039f8
+ 800ef88:	20004100 	.word	0x20004100
  800ef8c:	080148e0 	.word	0x080148e0
 
 0800ef90 <USBD_CDC_InterfaceStrDescriptor>:
@@ -37078,7 +37076,7 @@ uint8_t * USBD_CDC_InterfaceStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *len
  800efbe:	46bd      	mov	sp, r7
  800efc0:	bd80      	pop	{r7, pc}
  800efc2:	bf00      	nop
- 800efc4:	200039f8 	.word	0x200039f8
+ 800efc4:	20004100 	.word	0x20004100
  800efc8:	080148ec 	.word	0x080148ec
 
 0800efcc <Get_SerialNum>:
@@ -37719,7 +37717,7 @@ USBD_StatusTypeDef USBD_LL_Init(USBD_HandleTypeDef *pdev)
  800f322:	46bd      	mov	sp, r7
  800f324:	bd80      	pop	{r7, pc}
  800f326:	bf00      	nop
- 800f328:	20003bf8 	.word	0x20003bf8
+ 800f328:	20004300 	.word	0x20004300
  800f32c:	40005c00 	.word	0x40005c00
 
 0800f330 <USBD_LL_Start>:
@@ -38266,7 +38264,7 @@ void *USBD_static_malloc(uint32_t size)
  800f628:	f85d 7b04 	ldr.w	r7, [sp], #4
  800f62c:	4770      	bx	lr
  800f62e:	bf00      	nop
- 800f630:	20003ed4 	.word	0x20003ed4
+ 800f630:	200045dc 	.word	0x200045dc
 
 0800f634 <USBD_static_free>:
   * @brief  Dummy memory free
@@ -39717,7 +39715,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  80103e0:	0801056b 	.word	0x0801056b
  80103e4:	080105a3 	.word	0x080105a3
  80103e8:	080105c7 	.word	0x080105c7
- 80103ec:	200040f4 	.word	0x200040f4
+ 80103ec:	200047fc 	.word	0x200047fc
 
 080103f0 <stdio_exit_handler>:
  80103f0:	4a02      	ldr	r2, [pc, #8]	@ (80103fc <stdio_exit_handler+0xc>)
@@ -39752,9 +39750,9 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8010434:	f002 bdb2 	b.w	8012f9c <_fflush_r>
  8010438:	bd10      	pop	{r4, pc}
  801043a:	bf00      	nop
- 801043c:	200040f4 	.word	0x200040f4
- 8010440:	2000415c 	.word	0x2000415c
- 8010444:	200041c4 	.word	0x200041c4
+ 801043c:	200047fc 	.word	0x200047fc
+ 8010440:	20004864 	.word	0x20004864
+ 8010444:	200048cc 	.word	0x200048cc
 
 08010448 <global_stdio_init.part.0>:
  8010448:	b510      	push	{r4, lr}
@@ -39775,21 +39773,21 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  801046e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
  8010472:	2112      	movs	r1, #18
  8010474:	f7ff bf86 	b.w	8010384 <std>
- 8010478:	2000422c 	.word	0x2000422c
- 801047c:	200040f4 	.word	0x200040f4
+ 8010478:	20004934 	.word	0x20004934
+ 801047c:	200047fc 	.word	0x200047fc
  8010480:	080103f1 	.word	0x080103f1
 
 08010484 <__sfp_lock_acquire>:
  8010484:	4801      	ldr	r0, [pc, #4]	@ (801048c <__sfp_lock_acquire+0x8>)
  8010486:	f000 b920 	b.w	80106ca <__retarget_lock_acquire_recursive>
  801048a:	bf00      	nop
- 801048c:	20004235 	.word	0x20004235
+ 801048c:	2000493d 	.word	0x2000493d
 
 08010490 <__sfp_lock_release>:
  8010490:	4801      	ldr	r0, [pc, #4]	@ (8010498 <__sfp_lock_release+0x8>)
  8010492:	f000 b91b 	b.w	80106cc <__retarget_lock_release_recursive>
  8010496:	bf00      	nop
- 8010498:	20004235 	.word	0x20004235
+ 8010498:	2000493d 	.word	0x2000493d
 
 0801049c <__sinit>:
  801049c:	b510      	push	{r4, lr}
@@ -39809,7 +39807,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  80104c0:	e7f2      	b.n	80104a8 <__sinit+0xc>
  80104c2:	bf00      	nop
  80104c4:	08010409 	.word	0x08010409
- 80104c8:	2000422c 	.word	0x2000422c
+ 80104c8:	20004934 	.word	0x20004934
 
 080104cc <_fwalk_sglue>:
  80104cc:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -39954,7 +39952,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  80105fe:	b103      	cbz	r3, 8010602 <_close_r+0x1a>
  8010600:	6023      	str	r3, [r4, #0]
  8010602:	bd38      	pop	{r3, r4, r5, pc}
- 8010604:	20004230 	.word	0x20004230
+ 8010604:	20004938 	.word	0x20004938
 
 08010608 <_lseek_r>:
  8010608:	b538      	push	{r3, r4, r5, lr}
@@ -39972,7 +39970,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8010622:	b103      	cbz	r3, 8010626 <_lseek_r+0x1e>
  8010624:	6023      	str	r3, [r4, #0]
  8010626:	bd38      	pop	{r3, r4, r5, pc}
- 8010628:	20004230 	.word	0x20004230
+ 8010628:	20004938 	.word	0x20004938
 
 0801062c <_read_r>:
  801062c:	b538      	push	{r3, r4, r5, lr}
@@ -39990,7 +39988,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8010646:	b103      	cbz	r3, 801064a <_read_r+0x1e>
  8010648:	6023      	str	r3, [r4, #0]
  801064a:	bd38      	pop	{r3, r4, r5, pc}
- 801064c:	20004230 	.word	0x20004230
+ 801064c:	20004938 	.word	0x20004938
 
 08010650 <_write_r>:
  8010650:	b538      	push	{r3, r4, r5, lr}
@@ -40008,7 +40006,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  801066a:	b103      	cbz	r3, 801066e <_write_r+0x1e>
  801066c:	6023      	str	r3, [r4, #0]
  801066e:	bd38      	pop	{r3, r4, r5, pc}
- 8010670:	20004230 	.word	0x20004230
+ 8010670:	20004938 	.word	0x20004938
 
 08010674 <__errno>:
  8010674:	4b01      	ldr	r3, [pc, #4]	@ (801067c <__errno+0x8>)
@@ -41385,7 +41383,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8011402:	e7ca      	b.n	801139a <_free_r+0x22>
  8011404:	bd38      	pop	{r3, r4, r5, pc}
  8011406:	bf00      	nop
- 8011408:	2000423c 	.word	0x2000423c
+ 8011408:	20004944 	.word	0x20004944
 
 0801140c <malloc>:
  801140c:	4b02      	ldr	r3, [pc, #8]	@ (8011418 <malloc+0xc>)
@@ -41423,7 +41421,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8011456:	d1f2      	bne.n	801143e <sbrk_aligned+0x22>
  8011458:	e7ef      	b.n	801143a <sbrk_aligned+0x1e>
  801145a:	bf00      	nop
- 801145c:	20004238 	.word	0x20004238
+ 801145c:	20004940 	.word	0x20004940
 
 08011460 <_malloc_r>:
  8011460:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -41533,19 +41531,19 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8011556:	6005      	str	r5, [r0, #0]
  8011558:	e7d6      	b.n	8011508 <_malloc_r+0xa8>
  801155a:	bf00      	nop
- 801155c:	2000423c 	.word	0x2000423c
+ 801155c:	20004944 	.word	0x20004944
 
 08011560 <__malloc_lock>:
  8011560:	4801      	ldr	r0, [pc, #4]	@ (8011568 <__malloc_lock+0x8>)
  8011562:	f7ff b8b2 	b.w	80106ca <__retarget_lock_acquire_recursive>
  8011566:	bf00      	nop
- 8011568:	20004234 	.word	0x20004234
+ 8011568:	2000493c 	.word	0x2000493c
 
 0801156c <__malloc_unlock>:
  801156c:	4801      	ldr	r0, [pc, #4]	@ (8011574 <__malloc_unlock+0x8>)
  801156e:	f7ff b8ad 	b.w	80106cc <__retarget_lock_release_recursive>
  8011572:	bf00      	nop
- 8011574:	20004234 	.word	0x20004234
+ 8011574:	2000493c 	.word	0x2000493c
 
 08011578 <_Balloc>:
  8011578:	b570      	push	{r4, r5, r6, lr}
@@ -44306,7 +44304,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  801305a:	b103      	cbz	r3, 801305e <_sbrk_r+0x1a>
  801305c:	6023      	str	r3, [r4, #0]
  801305e:	bd38      	pop	{r3, r4, r5, pc}
- 8013060:	20004230 	.word	0x20004230
+ 8013060:	20004938 	.word	0x20004938
 
 08013064 <memcpy>:
  8013064:	440a      	add	r2, r1
@@ -45608,7 +45606,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8013c66:	6023      	str	r3, [r4, #0]
  8013c68:	bd38      	pop	{r3, r4, r5, pc}
  8013c6a:	bf00      	nop
- 8013c6c:	20004230 	.word	0x20004230
+ 8013c6c:	20004938 	.word	0x20004938
 
 08013c70 <_getpid_r>:
  8013c70:	f7ee bd04 	b.w	800267c <_getpid>
@@ -45711,7 +45709,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8013d52:	6023      	str	r3, [r4, #0]
  8013d54:	bd38      	pop	{r3, r4, r5, pc}
  8013d56:	bf00      	nop
- 8013d58:	20004230 	.word	0x20004230
+ 8013d58:	20004938 	.word	0x20004938
 
 08013d5c <_isatty_r>:
  8013d5c:	b538      	push	{r3, r4, r5, lr}
@@ -45727,7 +45725,7 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8013d72:	b103      	cbz	r3, 8013d76 <_isatty_r+0x1a>
  8013d74:	6023      	str	r3, [r4, #0]
  8013d76:	bd38      	pop	{r3, r4, r5, pc}
- 8013d78:	20004230 	.word	0x20004230
+ 8013d78:	20004938 	.word	0x20004938
 
 08013d7c <cosf>:
  8013d7c:	ee10 3a10 	vmov	r3, s0
