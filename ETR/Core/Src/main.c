@@ -38,7 +38,7 @@
 #define __IO volatile
 
 #define VREF_VOLTAGE 2.0f  // 参�?�电压为3.3V
-#define ADC_RESOLUTION 4095.0f  // ADC分辨率为12�???
+#define ADC_RESOLUTION 4095.0f  // ADC分辨率为12�????
 //#define LOOP 1
 //#define DELAY 1
 #define TOWHILE 1
@@ -71,6 +71,8 @@ ADC_HandleTypeDef hadc3;
 DMA_HandleTypeDef hdma_adc1;
 DMA_HandleTypeDef hdma_adc2;
 DMA_HandleTypeDef hdma_adc3;
+
+UART_HandleTypeDef hlpuart1;
 
 OPAMP_HandleTypeDef hopamp1;
 OPAMP_HandleTypeDef hopamp3;
@@ -144,6 +146,7 @@ static void MX_OPAMP1_Init(void);
 static void MX_OPAMP3_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM15_Init(void);
+static void MX_LPUART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -206,6 +209,7 @@ int main(void)
   MX_OPAMP3_Init();
   MX_TIM1_Init();
   MX_TIM15_Init();
+  MX_LPUART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
 
@@ -290,8 +294,8 @@ int main(void)
 //		ws2812_set_all(rgb_to_color(255-uwDutyCycle, uwDutyCycle, 0x00));
 		ws2812_update_force();
 		  sprintf(CDC_BUFFER,"Val:%.16f,%d,%d,%d,%d,%d,%d,%d\r\n",WHILE_BUFFER[i],i,USER_CounterTicks,uwDutyCycle,uwFrequency,uwIC2Value,BOOT0_BTN_COUNT,SysTick_GetValue());
-		  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
-
+//		  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
+		  	 HAL_UART_Transmit(&hlpuart1, CDC_BUFFER, CDC_BUFFER_SIZE, 100);
 
 
 		}
@@ -544,6 +548,53 @@ static void MX_ADC3_Init(void)
   /* USER CODE BEGIN ADC3_Init 2 */
 
   /* USER CODE END ADC3_Init 2 */
+
+}
+
+/**
+  * @brief LPUART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_LPUART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN LPUART1_Init 0 */
+
+  /* USER CODE END LPUART1_Init 0 */
+
+  /* USER CODE BEGIN LPUART1_Init 1 */
+
+  /* USER CODE END LPUART1_Init 1 */
+  hlpuart1.Instance = LPUART1;
+  hlpuart1.Init.BaudRate = 115200;
+  hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
+  hlpuart1.Init.StopBits = UART_STOPBITS_1;
+  hlpuart1.Init.Parity = UART_PARITY_NONE;
+  hlpuart1.Init.Mode = UART_MODE_TX_RX;
+  hlpuart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  hlpuart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&hlpuart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&hlpuart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&hlpuart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&hlpuart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN LPUART1_Init 2 */
+
+  /* USER CODE END LPUART1_Init 2 */
 
 }
 
